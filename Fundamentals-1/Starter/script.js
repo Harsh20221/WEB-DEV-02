@@ -14,3 +14,7 @@ if(sarah<=99){
 else {
     console.log("EXCEED")
 }
+
+
+var miramar= "2077";
+console.log(Number(miramar)); //? This'll change the type of this variable to number 
