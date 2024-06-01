@@ -1,3 +1,4 @@
+
 /* console.log("Hello World"); /////THIS IS MY FIRST HELLO WORLD IN JS////// 
 console.log(22+22+33+88);
 let name='Harsh'
@@ -64,19 +65,22 @@ switch(name){
 /* vault=prompt("Enter vault Number");
 vault>33 ? alert("You will be experimented " ): alert("You are safe") */
 
-function logger(){
+/* function logger(){
     console.log("HELLO WORLD DEAR");
 }
 
 logger();
 
-
+ */
 function foodprocessor(apples , oranges ){
 console.log(apples,oranges);
-const juice = 'juice with ${apples} apple and ${oranges} oranges';
+const juice = `juice with ${apples} apple and ${oranges} oranges`; //! VERY Important -- Use Only Backtick here and not anythging else , do not use single quotes or double quotes or it'll not display as string literals
 return juice;
 
 }
 
 
-foodprocessor(2,3);
+console.log(foodprocessor(2,3));
+
+
+
