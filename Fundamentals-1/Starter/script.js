@@ -71,6 +71,12 @@ function logger(){
 logger();
 
 
+function foodprocessor(apples , oranges ){
+console.log(apples,oranges);
+const juice = 'juice with ${apples} apple and ${oranges} oranges';
+return juice;
+
+}
 
 
-
+foodprocessor(2,3);
