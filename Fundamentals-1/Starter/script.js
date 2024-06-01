@@ -72,7 +72,7 @@ vault>33 ? alert("You will be experimented " ): alert("You are safe") */
 logger();
 
  */
-function foodprocessor(apples , oranges ){
+/* function foodprocessor(apples , oranges ){
 console.log(apples,oranges);
 const juice = `juice with ${apples} apple and ${oranges} oranges`; //! VERY Important -- Use Only Backtick here and not anythging else , do not use single quotes or double quotes or it'll not display as string literals
 return juice;
@@ -82,5 +82,18 @@ return juice;
 
 console.log(foodprocessor(2,3));
 
+ */
+
+function fun(num1,num2){
+    console.log(`num1---${num1} and num2---${num2} are fun!!!`);
+}  //* In this example we declared a function using traditional method 
+
+fun(2,3);
 
 
+const funny=function(num3,num4){
+    return num3-num4;  //* In this example we declared a function with the help of a expression and stored the value in a constant and used it to call the function 
+
+}
+
+console.log(funny(8,4));
