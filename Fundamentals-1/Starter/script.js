@@ -42,7 +42,7 @@ if(taming==="kibble" && dart==="shocking"){
 
 else 
 alert("Taming will take variable amount") */
-name=String(prompt("Please enter name"))
+/* name=String(prompt("Please enter name"))
 
 switch(name){
     case("Peterparker"):  //?DO not forget to use : after writing case statement 
@@ -57,4 +57,9 @@ switch(name){
     alert("You have the Scarlet Witch ");
     break;
 
-}
+} */   
+
+///*TERINARY OPERATORS //
+
+vault=prompt("Enter vault Number");
+vault>33 ? alert("You will be experimented " ): alert("You are safe")
