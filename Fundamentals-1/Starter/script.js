@@ -61,5 +61,16 @@ switch(name){
 
 ///*TERINARY OPERATORS //
 
-vault=prompt("Enter vault Number");
-vault>33 ? alert("You will be experimented " ): alert("You are safe")
+/* vault=prompt("Enter vault Number");
+vault>33 ? alert("You will be experimented " ): alert("You are safe") */
+
+function logger(){
+    console.log("HELLO WORLD DEAR");
+}
+
+logger();
+
+
+
+
+
