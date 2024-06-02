@@ -83,7 +83,7 @@ return juice;
 console.log(foodprocessor(2,3));
 
  */
-
+/* 
 function fun(num1,num2){
     console.log(`num1---${num1} and num2---${num2} are fun!!!`);
 }  //* In this example we declared a function using traditional method 
@@ -96,4 +96,29 @@ const funny=function(num3,num4){
 
 }
 
-console.log(funny(8,4));
+console.log(funny(8,4)); */
+
+
+//* Arrow Functions 
+/* 
+today=2024;
+
+const age = birthyear=>today-birthyear;
+console.log(age(1970)); */
+
+/* 
+//* Function calling Functions 
+
+function fruitchopper(fruit){
+return fruit*4;
+}
+
+
+
+function foodprocessor(apples, oranges){
+    return console.log(`We have juice of ${fruitchopper(apples)} apples and ${fruitchopper(oranges)} oranges `)
+}
+
+
+
+console.log(foodprocessor(4,8)); */
