@@ -124,7 +124,7 @@ function foodprocessor(apples, oranges){
 console.log(foodprocessor(4,8)); */
 
 
-//* ARRAY METHODS AND OPERATIONS 
+/* //* ARRAY METHODS AND OPERATIONS 
 
 arr1=["Hydrogen", "Helium", "Lithium ", "Berellium",["Molybednum", "Tritium"]];
 firstelement=arr1[0];
@@ -152,4 +152,20 @@ const TheNextgeneration = {
 year=1700
 
 console.log(TheNextgeneration.crew2)
-console.log(TheNextgeneration.subcode-year)
+console.log(TheNextgeneration.subcode-year) */
+
+
+
+
+//* Testing Object retrieveal methods Dot and Bracket 
+
+const jonas ={
+firstname:'Jonas',
+lastname:'schmedtmann',
+age:2037-1991,
+job:'teacher',
+friends:['Michael' , 'Peter','Steven']  //! Do not use double quotes here to assign names else it will give errors 
+}
+
+
+console.log(`jonas has ${jonas.friends.length} friends , and his best friend's name is ${jonas.friends[0]}`)
