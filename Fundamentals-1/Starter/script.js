@@ -149,5 +149,7 @@ const TheNextgeneration = {
     code:"NCC",
     subcode:1701,
 }
+year=1700
 
 console.log(TheNextgeneration.crew2)
+console.log(TheNextgeneration.subcode-year)
