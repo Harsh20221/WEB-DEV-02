@@ -157,7 +157,7 @@ console.log(TheNextgeneration.subcode-year) */
 
 
 
-//* Testing Object retrieveal methods Dot and Bracket 
+/* //* Testing Object retrieveal methods Dot and Bracket 
 
 const jonas ={
 firstname:'Jonas',
@@ -168,4 +168,10 @@ friends:['Michael' , 'Peter','Steven']  //! Do not use double quotes here to ass
 }
 
 
-console.log(`jonas has ${jonas.friends.length} friends , and his best friend's name is ${jonas.friends[0]}`)
+console.log(`jonas has ${jonas.friends.length} friends , and his best friend's name is ${jonas.friends[0]}`) */
+
+
+//* Basic For LOOP 
+for ( i=0 ; i<10;i++){
+    console.log("Hello Cutie")
+}
