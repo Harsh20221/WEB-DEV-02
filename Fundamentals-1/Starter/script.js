@@ -188,3 +188,11 @@ for(let i=0;i<Data.length;i++){
     console.log(Data[i]);
 }
     
+//* While loop 
+let i=0;
+first10NATno=[1,2,3,4,5,6,7,8,9,10]
+while(i!=10){
+
+    console.log(first10NATno[i])
+    i++
+}
