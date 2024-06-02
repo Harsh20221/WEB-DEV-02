@@ -122,3 +122,18 @@ function foodprocessor(apples, oranges){
 
 
 console.log(foodprocessor(4,8)); */
+
+
+
+
+arr1=["Hydrogen", "Helium", "Lithium ", "Berellium",["Molybednum", "Tritium"]];
+firstelement=arr1[0];
+Arrayinsidearray=arr1[4];
+console.log(firstelement)
+console.log(Arrayinsidearray)
+length=arr1.push("Ognession") //? push pushes the given element at end of an array and returns the length of an array 
+console.log(length); 
+arr1.shift() //? This'll remove the element from first position 
+console.log(arr1)
+arr1.unshift("Molecule") //? This will inserrt the given elementy at first position of the array
+console.log(arr1);   
