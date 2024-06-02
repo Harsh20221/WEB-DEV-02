@@ -170,8 +170,21 @@ friends:['Michael' , 'Peter','Steven']  //! Do not use double quotes here to ass
 
 console.log(`jonas has ${jonas.friends.length} friends , and his best friend's name is ${jonas.friends[0]}`) */
 
-
+/* 
 //* Basic For LOOP 
 for ( i=0 ; i<10;i++){
     console.log("Hello Cutie")
+} */
+
+
+//*Uisng Array Looping Continue and Break 
+
+Data=[ "Jonas", 33 , "Denver", true, 44.5]
+
+for(let i=0;i<Data.length;i++){
+    if ( typeof Data[i]!=='string')  //! Very important since type of returns operand in lower case so you must write string with s as lowercase 
+        continue;
+    
+    console.log(Data[i]);
 }
+    
