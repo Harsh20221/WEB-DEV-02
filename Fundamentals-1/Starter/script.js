@@ -137,3 +137,17 @@ arr1.shift() //? This'll remove the element from first position
 console.log(arr1)
 arr1.unshift("Molecule") //? This will inserrt the given elementy at first position of the array
 console.log(arr1);   
+
+
+
+//* Objects 
+
+const TheNextgeneration = {
+    crew1:"Geordi",
+    crew2:"Data",
+    ship : "USS Enterprise ",
+    code:"NCC",
+    subcode:1701,
+}
+
+console.log(TheNextgeneration.crew2)
