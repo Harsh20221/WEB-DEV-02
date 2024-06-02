@@ -124,7 +124,7 @@ function foodprocessor(apples, oranges){
 console.log(foodprocessor(4,8)); */
 
 
-
+//* ARRAY METHODS AND OPERATIONS 
 
 arr1=["Hydrogen", "Helium", "Lithium ", "Berellium",["Molybednum", "Tritium"]];
 firstelement=arr1[0];
