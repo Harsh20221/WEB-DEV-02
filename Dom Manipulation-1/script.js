@@ -11,6 +11,7 @@ const secretNumber = Math.trunc(Math.random()*20)+1;
 
 let score = 20;  //!!! Do not define this score variable inside the event listener block else it'll reset again and again to 20 and the program will not work 
 
+
 document.querySelector('.check').addEventListener('click', function (){  //? This Method will display the value of input field after pressing the check button, This function will help to display the value of the text field to the console 
     const guess=Number(document.querySelector('.guess').value);   //! Do not put this Statement outside of the loop , This Statement is responsible for storing our guess ( Input Number S)
 
@@ -53,3 +54,15 @@ else {
 
 }
 });
+//* Thic code below will reset the game upon selecting the right no 
+document.querySelector('.again').addEventListener('click', function () {
+ 
+    document.querySelector('.message').textContent='Start guessing...'
+    document.querySelector('.number').textContent='?'
+    document.querySelector('body').style.backgroundColor='#222'
+    document.querySelector('.guess').value=null;
+    score=20;
+     document.querySelector('.score').textContent=score //! Make sure to write the score as . score , do not leave the dot or else the code will not work , also just reassigning the score to 20 will not work , we need to change the score element in the webpage to display the old score so for that this line is important 
+    
+    })
+    
