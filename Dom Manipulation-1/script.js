@@ -8,7 +8,7 @@ document.querySelector('.score').textContent=22; */
 const secretNumber = Math.trunc(Math.random()*20)+1;
 ///?Math. random generates a random floating poingt no btw 0 and 1  we are multiplying that no by 20 to get random no btw 0 and 20 and then using Math.trunc to omit the fractional point to get whole numbers  
 
-document.querySelector('.number').textContent=secretNumber; //?. The secret no is shown to user currently only for testing purposes 
+
 let score = 20;  //!!! Do not define this score variable inside the event listener block else it'll reset again and again to 20 and the program will not work 
 
 document.querySelector('.check').addEventListener('click', function (){  //? This Method will display the value of input field after pressing the check button, This function will help to display the value of the text field to the console 
@@ -21,6 +21,9 @@ if (guess==null){
 
 else if (guess === secretNumber){
     document.querySelector('.message').textContent='🎉 Correct Number';
+    document.querySelector('body').style.backgroundColor='#60b307' //? This'll change the background color of the screen to green after selecting correct answer  ( This is used to change the CSS elements )
+    document.querySelector('.number').style.width='30rem'
+    document.querySelector('.number').textContent=secretNumber; //?. The secret no is shown to the useer upon losing the game or guessing it right 
 }
 
 else if(guess>secretNumber) {
@@ -32,6 +35,7 @@ document.querySelector('.score').textContent=score; //? Here we are assigning th
 }
     else {
         document.querySelector('.message').textContent='💥 You have lost the game TRY again '
+        document.querySelector('.number').textContent=secretNumber; //?. The secret no is shown to the useer upon losing the game or guessing it right 
     }
 
 }
@@ -44,6 +48,7 @@ else if ( guess < secretNumber){
 
 else {
     document.querySelector('.message').textContent='💥 You have lost the game TRY again '
+    document.querySelector('.number').textContent=secretNumber; //?. The secret no is shown to the useer upon losing the game or guessing it right 
 }
 
 }
