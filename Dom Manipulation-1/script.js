@@ -7,5 +7,8 @@ document.querySelector('.score').textContent=22; */
 ///THE ACTUAL CODE FOR THIS PROJECT STARTS UP FROM HERE /////
 
 document.querySelector('.check').addEventListener('click', function (){  //? This Method will display the value of input field after pressing the check button, This function will help to display the value of the text field to the console 
-console.log(document.querySelector('.guess').value)
+const guess=console.log(document.querySelector('.guess').value)
+if (!guess){
+    document.querySelector('.message').textContent="⛔ No Number"
+}
 });
