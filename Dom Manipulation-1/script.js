@@ -10,7 +10,7 @@ const secretNumber = Math.trunc(Math.random()*20)+1;
 
 
 let score = 20;  //!!! Do not define this score variable inside the event listener block else it'll reset again and again to 20 and the program will not work 
-
+let highscore=0;
 
 document.querySelector('.check').addEventListener('click', function (){  //? This Method will display the value of input field after pressing the check button, This function will help to display the value of the text field to the console 
     const guess=Number(document.querySelector('.guess').value);   //! Do not put this Statement outside of the loop , This Statement is responsible for storing our guess ( Input Number S)
@@ -25,6 +25,9 @@ else if (guess === secretNumber){
     document.querySelector('body').style.backgroundColor='#60b307' //? This'll change the background color of the screen to green after selecting correct answer  ( This is used to change the CSS elements )
     document.querySelector('.number').style.width='30rem'
     document.querySelector('.number').textContent=secretNumber; //?. The secret no is shown to the useer upon losing the game or guessing it right 
+    if (score>highscore){
+        document.querySelector('.highscore').textContent=score;
+    }
 }
 
 else if(guess>secretNumber) {
