@@ -44,7 +44,7 @@ else if(guess!=secretNumber) { //* This is the same code as below for telling th
 
 
 
-
+/* 
 
 
 
@@ -77,7 +77,7 @@ else {
     document.querySelector('.number').textContent=secretNumber; //?. The secret no is shown to the useer upon losing the game or guessing it right 
 }
 
-}
+} */
 });
 //* Thic code below will reset the game upon selecting the right no 
 document.querySelector('.again').addEventListener('click', function () {
