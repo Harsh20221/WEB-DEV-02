@@ -30,6 +30,28 @@ else if (guess === secretNumber){
     }
 }
 
+else if(guess!=secretNumber) { //* This is the same code as below for telling the user high or low guess but done using Terinary operators 
+    if (score>1){
+        document.querySelector('.message').textContent=guess>secretNumber?'📈 Too High!' :'📉 Too Low ';
+        score--;
+        document.querySelector('.score').textContent=score;
+    }
+    else 
+    document.querySelector('.message').textContent='💥 You have lost the game TRY again '
+    document.querySelector('.number').textContent=secretNumber; //?. The secret no is shown to the useer upon losing the game or guessing it right 
+}
+
+
+
+
+
+
+
+
+
+
+
+
 else if(guess>secretNumber) {
  if(score>0){
  document.querySelector('.message').textContent='📈 Too High';
