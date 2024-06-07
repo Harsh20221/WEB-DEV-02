@@ -74,3 +74,6 @@ console.log(AAR2) */
 const [a,b,...others]=[1,2,3,4,5]  //? This is the example of rest Patterns 
 console.log(a,b,...others) //? This is the Ex of Rest Pattern 
 
+const [ pizza,  Donuts, ...otherfood] = [...restaurant.mainMenu , restaurant.starterMenu] //! Do not add items in "" while using rest pattern 
+
+console.log(pizza , Donuts , ...otherfood)
