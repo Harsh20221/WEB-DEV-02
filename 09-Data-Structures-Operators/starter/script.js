@@ -27,3 +27,17 @@ const restaurant = {
     },
   },
 };
+//* Descinstructing Arrays ( Hetre we are using this method to deconstruct Array )
+
+const arr1=[" Hydrogen", " Helium", " Lithium ", 'Berellium ', "Boron" ]
+
+
+const [x,y,z]=arr1;
+console.log(x,y,z)
+
+
+const arr2 = [ 'JEE', ' NEET ', 'UPSC','CBSE','NCERT']  //? Here we are deconstructing Arrays using Swap Methods 
+
+let [primary , secondary , tertiary]=arr2;
+ [secondary , primary ] = [primary , secondary]
+console.log([secondary ])
