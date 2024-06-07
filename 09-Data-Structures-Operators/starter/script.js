@@ -44,10 +44,20 @@ console.log([secondary ])
 
 
 const order = function (starterindex , mainindex){
-  return restaurant.starterMenu[starterindex,mainindex]
+  return [restaurant.starterMenu[starterindex],this.mainMenu[mainindex]];
 
 }
 console.log(order(1,3)); */
 
-const { names , openingHours,categories}=restaurant;
-console.log(names , openingHours,categories);
+/* const { names , openingHours,categories}=restaurant;
+console.log(names , openingHours,categories); */
+
+//*  Mutating Variables 
+
+let a=111;
+let b=117;
+
+
+const obj={a:2267,b:44567};
+({a,b}=obj); //?This is how you'll deconstruct Objects  
+console.log(a,b);
