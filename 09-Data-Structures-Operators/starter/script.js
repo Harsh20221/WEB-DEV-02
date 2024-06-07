@@ -61,3 +61,9 @@ let b=117;
 const obj={a:2267,b:44567};
 ({a,b}=obj); //?This is how you'll deconstruct Objects  
 console.log(a,b);
+
+///THE SPREAD OPERATOR ////
+
+const AAR1=[1,2,3,4,54] //! Do not forget to add Const here 
+const AAR2=[55,56,57,58,59,...AAR1]
+console.log(AAR2)
