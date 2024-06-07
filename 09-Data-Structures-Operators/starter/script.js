@@ -54,16 +54,23 @@ console.log(names , openingHours,categories); */
 
 //*  Mutating Variables 
 
-let a=111;
+/* let a=111;
 let b=117;
 
 
 const obj={a:2267,b:44567};
 ({a,b}=obj); //?This is how you'll deconstruct Objects  
 console.log(a,b);
-
+ */
 ///THE SPREAD OPERATOR ////
-
+/* 
 const AAR1=[1,2,3,4,54] //! Do not forget to add Const here 
 const AAR2=[55,56,57,58,59,...AAR1]
-console.log(AAR2)
+console.log(AAR2) */
+///Rest Pattern /////
+
+/* const arr=[1,2 ,...[3,4]]  this is an example of Spread operator */ 
+/* console.log(arr) */
+const [a,b,...others]=[1,2,3,4,5]  //? This is the example of rest Patterns 
+console.log(a,b,...others) //? This is the Ex of Rest Pattern 
+
