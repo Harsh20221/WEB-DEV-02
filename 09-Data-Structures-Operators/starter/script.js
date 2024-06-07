@@ -77,3 +77,35 @@ console.log(a,b,...others) //? This is the Ex of Rest Pattern
 const [ pizza,  Donuts, ...otherfood] = [...restaurant.mainMenu , restaurant.starterMenu] //! Do not add items in "" while using rest pattern 
 
 console.log(pizza , Donuts , ...otherfood)
+
+
+const add =  function Number(...numbers) {
+let sum=0;
+for ( let i=0 ; i<numbers.length;i++){
+sum+=numbers[i];  //? This is how you'll create the add logic using rest operators 
+}
+return sum;
+ }
+
+console.log( add(2,5))
+
+
+///* Operator short circuiting using and && and or ||
+
+console.log(0 || 29) //? or operator will display the first truthsy value that is 29 in this case 
+
+
+console.log(0&&29) //? and operator will display the first falsy value that it will encounter 
+
+
+
+
+
+
+
+
+
+
+
+
+
