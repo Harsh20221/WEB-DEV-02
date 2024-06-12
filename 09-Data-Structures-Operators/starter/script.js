@@ -107,16 +107,28 @@ console.log(closingtime) //? This is how you'll use the nullish operator in java
 
 ///*Local Assignment operators 
 
+
+
+
+
+const rest1 = { 
+  name:'Classico Italiano', 
+  numGuests:23,
+
+}
+
+const rest2 = {
+  name:'La Casa Italiano', 
+  numGuests:23,
+  owner:'Francesco' ,
+}
+
+rest2.numGuests ??= 10; //?This is called the nullish assignment operator , it will only set the value if the value is null or undefined , The output will be 23 as the value is already set to 23, if it was 0 then the output would be 10 as the value would be set to 10
+
+
+
 restaurant.numGuests=0; //? This is how you'll set the value of the object to 0
-const guests = guests || 10; //?This is the traditional way of setting the value of the object 
+rest1.numGuests
+ = rest1.numGuests|| 10; //?This is the traditional way of setting the value of the object 
 
- guests ||= 10; //? This is the new way of setting the value of the object using the local assignment operator
-
-
-
-
-
-
-
-
-
+ rest1.numGuests ||= 10; //? This is the new way of setting the value of the object using the local assignment operator
