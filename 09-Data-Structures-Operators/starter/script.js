@@ -131,4 +131,8 @@ restaurant.numGuests=0; //? This is how you'll set the value of the object to 0
 rest1.numGuests
  = rest1.numGuests|| 10; //?This is the traditional way of setting the value of the object 
 
- rest1.numGuests ||= 10; //? This is the new way of setting the value of the object using the local assignment operator
+ rest1.numGuests ||= 10; //? This is the new way of setting the value of the object using the local assignment operator , this will only set the value if the value is falsy , if the value is truthsy then it will not set the value
+
+
+ rest2.owner &&= 'Rahul'; //?This is the and assignment operator , it will only set the value if the value is truthsy , if the value is falsy then it will not set the value
+ console.log(rest2.owner) 
