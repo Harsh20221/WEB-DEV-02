@@ -98,8 +98,19 @@ console.log(0 || 29) //? or operator will display the first truthsy value that i
 console.log(0&&29) //? and operator will display the first falsy value that it will encounter 
 
 
+//* Nullish Operator In Javascript 
+
+restaurant.openingHours=0; //? This is how you'll set the value of the object to 0
+const closingtime = restaurant.openingHours ?? 10; //?The nullish operator will only display the value if the value is null or undefined , nullish operatar unlike or will display the value if the value is 0
+console.log(closingtime) //? This is how you'll use the nullish operator in javascript
 
 
+///*Local Assignment operators 
+
+restaurant.numGuests=0; //? This is how you'll set the value of the object to 0
+const guests = guests || 10; //?This is the traditional way of setting the value of the object 
+
+ guests ||= 10; //? This is the new way of setting the value of the object using the local assignment operator
 
 
 
