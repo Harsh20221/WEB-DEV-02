@@ -246,6 +246,12 @@ openingHours, //? This is the example of enhansed object literals
 
 //* Optional Chaining
 for ( const day of weekdays){
-  const open = restaurant.openingHours[day]?.open || 'closed';
+  const open = restaurant.openingHours[day]?.open ?? 'closed';
   console.log(`on ${day}, we open at ${open}`)
 }
+
+//#Another example of optional chaining 
+
+const users = [{name:"Mariam", email:"Mariamwebster@web.com"}]
+
+console.log(users[0]?.name ?? "User not found ") //? This'll display the user name if it exists or will display user not found if it does not 
