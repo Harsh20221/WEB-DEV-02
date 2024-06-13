@@ -204,7 +204,7 @@ console.log(fieldplayers); */
 
 
 //* USING FOR OF LOOP IN JAVASCRIPT ///////
-const restaurant = {
+/* const restaurant = {
   names: 'Classico Italiano',
   location: 'Via Angelo Tavanti 23, Firenze, Italy',
   categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
@@ -212,17 +212,12 @@ const restaurant = {
   mainMenu: ['Pizza', 'Pasta', 'Risotto'],
 openingHours,
 
-};
-
+}; */
 ////for ( const item of restaurant.starterMenu) console.log(item);
-for (const item of restaurant.starterMenu.entries()){
+/* for (const item of restaurant.starterMenu.entries()){
   console.log(`${item[0]+1}:${item[1]}`);
-}
-
-
-//* Enhansed Object Literals 
-
-
+} */
+//* Enhanced Object Literals 
 const openingHours = {
   thu: {
     open: 12,
@@ -236,4 +231,13 @@ const openingHours = {
     open: 0, // Open 24 hours
     close: 24,
   },
+};
+const restaurant = {
+  names: 'Classico Italiano',
+  location: 'Via Angelo Tavanti 23, Firenze, Italy',
+  categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
+  starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
+  mainMenu: ['Pizza', 'Pasta', 'Risotto'],
+openingHours,
+
 };
