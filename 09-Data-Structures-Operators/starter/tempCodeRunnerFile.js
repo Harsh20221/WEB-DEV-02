@@ -1,0 +1,1 @@
+const fieldplayers=game.players[0].slice[1,10]
