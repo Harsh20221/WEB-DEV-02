@@ -225,11 +225,11 @@ const openingHours = {
     open: 12, 
     close: 22,
   },
-  fri: {
+ [weekdays[1,5]]: {
     open: 11,
     close: 23,
   },
-  sat: {
+  [weekdays[6]]: {
     open: 0, // Open 24 hours
     close: 24,
   },
@@ -242,3 +242,10 @@ const restaurant = {
   mainMenu: ['Pizza', 'Pasta', 'Risotto'],
 openingHours, //? This is the example of enhansed object literals
 };
+
+
+//* Optional Chaining
+for ( const day of weekdays){
+  const open = restaurant.openingHours[day]?.open || 'closed';
+  console.log(`on ${day}, we open at ${open}`)
+}
