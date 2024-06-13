@@ -218,9 +218,11 @@ openingHours,
   console.log(`${item[0]+1}:${item[1]}`);
 } */
 //* Enhanced Object Literals 
+const weekdays =['SUNDAY','MONDAY' , 'TUESDAY','WEDNESDAY','THURSDAY','FRIDAY','SATURDAY']
+
 const openingHours = {
-  thu: {
-    open: 12,
+  [weekdays[0]]: {  //? Here we have written weekdays[0] instead of sunday , this is how you'll use the enhanced object literals
+    open: 12, 
     close: 22,
   },
   fri: {
@@ -238,6 +240,5 @@ const restaurant = {
   categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
   starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
   mainMenu: ['Pizza', 'Pasta', 'Risotto'],
-openingHours,
-
+openingHours, //? This is the example of enhansed object literals
 };
