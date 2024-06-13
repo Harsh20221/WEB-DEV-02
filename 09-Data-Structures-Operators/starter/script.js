@@ -151,7 +151,7 @@ rest1.numGuests
  
  GOOD LUCK 😀
   */
-
+/* 
  const game = {
   team1: 'Bayern Munich',
   team2: 'Borrussia Dortmund',
@@ -199,4 +199,35 @@ const players2 = [game.players[1]]
 const gk = players1[0][0]; ///////////THIS IS HOW YOU ACCESS A NESTED ARRAY ITEM ///
 const fieldplayers=players1[0].slice[1,11]
 
-console.log(fieldplayers);
+console.log(fieldplayers); */
+
+
+
+//* USING FOR OF LOOP IN JAVASCRIPT ///////
+const restaurant = {
+  names: 'Classico Italiano',
+  location: 'Via Angelo Tavanti 23, Firenze, Italy',
+  categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
+  starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
+  mainMenu: ['Pizza', 'Pasta', 'Risotto'],
+
+  openingHours: {
+    thu: {
+      open: 12,
+      close: 22,
+    },
+    fri: {
+      open: 11,
+      close: 23,
+    },
+    sat: {
+      open: 0, // Open 24 hours
+      close: 24,
+    },
+  },
+};
+
+////for ( const item of restaurant.starterMenu) console.log(item);
+for (const item of menu.entries()){
+  console.log(`${item[0]+1}:${item[1]}`)
+}
