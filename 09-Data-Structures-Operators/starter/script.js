@@ -228,6 +228,6 @@ const restaurant = {
 };
 
 ////for ( const item of restaurant.starterMenu) console.log(item);
-for (const item of menu.entries()){
-  console.log(`${item[0]+1}:${item[1]}`)
+for (const item of restaurant.starterMenu.entries()){
+  console.log(`${item[0]+1}:${item[1]}`);
 }
