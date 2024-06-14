@@ -255,3 +255,20 @@ for ( const day of weekdays){
 const users = [{name:"Mariam", email:"Mariamwebster@web.com"}]
 
 console.log(users[0]?.name ?? "User not found ") //? This'll display the user name if it exists or will display user not found if it does not 
+
+
+///* SET DATA STRUCTURE (ONLY HAS UNIQUE VALUES)
+/* 
+const data = new Set(['Data','Willliam Riker ','Jean Luc Pickard ','Jean Luc pickard ']); /// Sets are enclosed by () (Round Brackets) and the Actual elements are enclosed by []
+console.log(data);
+data.delete('Data'); //? This'll delete the mentioned element from set 
+data.add('Counsellor Troi '); ///? We can add individual elements to the set like this 
+console.log(data);
+console.log(data.has('Worf')); //? This is to  check if the afterentioned element is inside the set 
+
+const staff= ['agent-1','b','xo=7','omega97','agent-1']
+const uniquestaff= [...new Set(staff)];
+console.log(uniquestaff)
+ */
+
+//* MAP Data Structure to store in the form of Key Value Pairs 
