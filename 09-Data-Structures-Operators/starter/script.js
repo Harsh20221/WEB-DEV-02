@@ -301,5 +301,5 @@ console.log(airlines[1].slice(-1))
 const passenger='Jonas'
 const lower = passenger.toLowerCase();
 console.log(lower);
-const email=' jonas@ 78907.com'
-console.log(email.trim())
+const email=' jonas@78907.com'
+console.log(email.trim())  //? trim removes whitespaces from both ends of the string , but does not remove whitespaces from between the string 
