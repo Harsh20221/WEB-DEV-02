@@ -303,3 +303,6 @@ const lower = passenger.toLowerCase();
 console.log(lower);
 const email=' jonas@78907.com'
 console.log(email.trim())  //? trim removes whitespaces from both ends of the string , but does not remove whitespaces from between the string 
+const price ='2000€'
+const newprice=price.replace('€','$')
+console.log(newprice) //? This'll replace the  €  with $ using replace function 
