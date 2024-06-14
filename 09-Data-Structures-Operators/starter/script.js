@@ -273,7 +273,7 @@ console.log(uniquestaff)
 
 //* MAP Data Structure to store in the form of Key Value Pairs 
 
-const cars = new Map() ;
+/* const cars = new Map() ;
 
 cars.set(1,'Aventador SVJ ');
 cars.set(2,'Hurracan');
@@ -286,4 +286,20 @@ cars.delete(1);
 console.log(cars.get(3))  //! do not use [] with the get method
 console.log(cars) 
 
+ */
+///* String Operations 
 
+const airlines = ['Lufthansa', 'AirIndia', 'Indigo ']
+const plane =['A320','B737','A330']
+console.log(plane.length);
+console.log(airlines[0].indexOf('t'))
+console.log(airlines[1].lastIndexOf('i'));//?The lastIndexOf() method is used to find the last occurrence of a specified value in an array or a string. In this case, it's looking for the last occurrence of the string 'r' ,The method returns the index at which the last occurrence of the specified value is found. If the value is not found, it returns -1.
+/* console.log(airlines[0].slice(1,-1)) */
+console.log(airlines[1].slice(-1))
+
+
+const passenger='Jonas'
+const lower = passenger.toLowerCase();
+console.log(lower);
+const email=' jonas@ 78907.com'
+console.log(email.trim())
