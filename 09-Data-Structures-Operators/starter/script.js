@@ -245,17 +245,17 @@ openingHours, //? This is the example of enhansed object literals
 
 
 //* Optional Chaining
-for ( const day of weekdays){
+/* for ( const day of weekdays){
   const open = restaurant.openingHours[day]?.open ?? 'closed';
   console.log(`on ${day}, we open at ${open}`)
-}
+} */
 
 //#Another example of optional chaining 
 
-const users = [{name:"Mariam", email:"Mariamwebster@web.com"}]
+/* const users = [{name:"Mariam", email:"Mariamwebster@web.com"}]
 
 console.log(users[0]?.name ?? "User not found ") //? This'll display the user name if it exists or will display user not found if it does not 
-
+ */
 
 ///* SET DATA STRUCTURE (ONLY HAS UNIQUE VALUES)
 /* 
@@ -272,3 +272,18 @@ console.log(uniquestaff)
  */
 
 //* MAP Data Structure to store in the form of Key Value Pairs 
+
+const cars = new Map() ;
+
+cars.set(1,'Aventador SVJ ');
+cars.set(2,'Hurracan');
+cars.set(3,'Lotus Evija ');
+cars.set(4,'Cadilac Escillade');
+cars.set(5,'Lincoln Navigator');
+cars.set('Special','Bugatti La Noiture Voire ').set(6,'Aston Martin Vulcan')
+cars.delete(1);
+
+console.log(cars.get(3))  //! do not use [] with the get method
+console.log(cars) 
+
+
