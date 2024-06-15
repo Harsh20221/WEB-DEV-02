@@ -332,6 +332,6 @@ funcap('jessics von man ')
 
 
 const message= 'Go to gate 54'
-console.log(message.padStart(4,'*').padEnd(5,'*'))
+console.log(message.padStart(20,'*').padEnd(25,'*')) //! If you mention the length of pad.Start and padEnd less than the original string length so the original string will just be printed rather than with padstart and padend 
 
 /* console.log(message.repeat(5)) */
