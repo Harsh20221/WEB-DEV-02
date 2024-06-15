@@ -11,6 +11,7 @@
 
 /* flightdetals('Harsh',122340) */
 
+/*
 const oneWord = function (str){
     return str.replace(/ /g,'').toLowerCase();
 };
@@ -27,4 +28,17 @@ const transformer = function(str , fn){
     console.log(`transformed by :: ${fn.name}`)
 }
 
-transformer('Sheila is a Good Looking Women',oneWord); //!! DO not pass the function here like this oneWord() , here we'll not add () with the function name
+transformer('Sheila is a Good Looking Women',oneWord); //!! DO not pass the function here like this oneWord() ,
+//! here we'll not add () with the function name
+console.log(transformer("Darthvader is Coming ",upscale));*/
+  ////**** FUNCTIONAL PROGRAMMING -- Functions returning Functions  //////
+  const greet = function(greeting){
+    return function(name){
+      console.log(`${greeting} ${name}`)
+    }
+  }
+
+greet('Hello')('Jonas');
+const greeter=  greet('hey')
+greeter('Lua')
+greeter('Laura')
