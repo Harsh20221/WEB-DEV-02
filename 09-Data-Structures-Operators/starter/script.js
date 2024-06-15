@@ -288,21 +288,48 @@ console.log(cars)
 
  */
 ///* String Operations 
-
+/* 
 const airlines = ['Lufthansa', 'AirIndia', 'Indigo ']
 const plane =['A320','B737','A330']
 console.log(plane.length);
 console.log(airlines[0].indexOf('t'))
 console.log(airlines[1].lastIndexOf('i'));//?The lastIndexOf() method is used to find the last occurrence of a specified value in an array or a string. In this case, it's looking for the last occurrence of the string 'r' ,The method returns the index at which the last occurrence of the specified value is found. If the value is not found, it returns -1.
 /* console.log(airlines[0].slice(1,-1)) */
-console.log(airlines[1].slice(-1))
+/* console.log(airlines[1].slice(-1)) */
+ 
 
-
-const passenger='Jonas'
+/* const passenger='Jonas'
 const lower = passenger.toLowerCase();
 console.log(lower);
 const email=' jonas@78907.com'
 console.log(email.trim())  //? trim removes whitespaces from both ends of the string , but does not remove whitespaces from between the string 
 const price ='2000€'
-const newprice=price.replace('€','$')
-console.log(newprice) //? This'll replace the  €  with $ using replace function 
+const newprice=price.replace('€','$') */
+/* console.log(newprice) //? This'll replace the  €  with $ using replace function 
+const Boardingmessage = ' All Passengers please report to your Nearest Boarding Door , for Passengers with Business Class or First Class Boarding pass , Please report to your nearest Priority Boarding Door  '
+console.log(Boardingmessage.replace(/Door/g,'Gate')); //? This will work similarly to replaceAll , 
+//! Do not forget to use add ; at the termination of the statement   */
+////console.log(Boardingmessage.replaceAll('Door','Gate'))
+/* const ifincludes = Boardingmessage.includes('report');
+console.log(ifincludes)
+ */
+
+/* const funcap=function(name){
+  const names = name.split(" ");
+  const finalname =[];
+  for ( const na of names ) {
+    finalname.push(na[0] + na.slice(1));
+
+  }
+
+  console.log(finalname.join(''));
+}
+ */
+/* 
+funcap('jessics von man ') */
+
+
+
+
+const message= 'Go to gate 54'
+console.log(message.padStart(4,'*').padEnd(5,'*'))
