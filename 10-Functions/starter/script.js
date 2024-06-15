@@ -39,6 +39,17 @@ console.log(transformer("Darthvader is Coming ",upscale));*/
   }
 
 greet('Hello')('Jonas');
-const greeter=  greet('hey')
-greeter('Lua')
-greeter('Laura')
+const greeter=  greet('hey');
+greeter('Lua');
+greeter('Laura');
+
+///comm-- Using Arrow Functions , trying the same thing
+
+const greetothers = greeting => name => console.log(`${greeting} ${name}`)
+
+ greetothers('hello')('Viola')
+
+
+
+
+
