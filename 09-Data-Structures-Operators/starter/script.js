@@ -314,7 +314,7 @@ console.log(Boardingmessage.replace(/Door/g,'Gate')); //? This will work similar
 console.log(ifincludes)
  */
 
- const funcap=function(name){
+/*  const funcap=function(name){
   const names = name.split(" ");
   const finalname =[];
   for ( const na of names ) {
@@ -328,10 +328,10 @@ console.log(ifincludes)
  
 funcap('jessics von man ') 
 
-
+ */
 
 
 const message= 'Go to gate 54'
 console.log(message.padStart(4,'*').padEnd(5,'*'))
 
-console.log(message.repeat(5))
+/* console.log(message.repeat(5)) */
