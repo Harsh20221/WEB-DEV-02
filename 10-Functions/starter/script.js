@@ -27,4 +27,4 @@ const transformer = function(str , fn){
     console.log(`transformed by :: ${fn.name}`)
 }
 
-transformer('Sheila is a Good Looking Women',oneWord); //!! DO not pass the
+transformer('Sheila is a Good Looking Women',oneWord); //!! DO not pass the function here like this oneWord() , here we'll not add () with the function name
