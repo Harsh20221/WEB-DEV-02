@@ -78,5 +78,8 @@ const booklut = book.bind(lufthansa);
 
 booklut(124890,'Mirabel');
 
+///** Immediately Invoked Functions  */
 
-
+(function(){
+  console.log('This will never run again')
+})(); //? This is an IIFE(Immediately Invokeed Function) function and will run only once and will never run again
