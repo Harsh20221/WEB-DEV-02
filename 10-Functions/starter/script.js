@@ -29,9 +29,10 @@ const transformer = function(str , fn){
 }
 
 transformer('Sheila is a Good Looking Women',oneWord); //!! DO not pass the function here like this oneWord() ,
-//! here we'll not add () with the function name
+////! here we'll not add () with the function name
 console.log(transformer("Darthvader is Coming ",upscale));*/
   ////**** FUNCTIONAL PROGRAMMING -- Functions returning Functions  //////
+/*
   const greet = function(greeting){
     return function(name){
       console.log(`${greeting} ${name}`)
@@ -42,14 +43,40 @@ greet('Hello')('Jonas');
 const greeter=  greet('hey');
 greeter('Lua');
 greeter('Laura');
+*/
 
 ///comm-- Using Arrow Functions , trying the same thing
 
+/*
 const greetothers = greeting => name => console.log(`${greeting} ${name}`)
 
  greetothers('hello')('Viola')
+*/
 
 
+
+const lufthansa ={
+  airline:'Lufthansa',
+  iatacode:'LH',
+  bookings: [],
+ book(flightnum, name){
+return console.log(`passenger ${name} has booked a Ticket with ${this.airline} having code ${this.iatacode} on flightnumber ${flightnum}`)
+  }
+}
+const Eurowings = {
+  airline:'Eurowings',
+  iatacode: 'EW',
+  bookings: []
+
+}
+
+const book=lufthansa.book; //! Do not add () after book as it will lead to an error 
+
+/*book(2234,'Harry Potter')*/ //? This'll point to undefined as book will act as a normal function call and then this keyword in book function will point to  undefined
+  ///// This will create an error and to help solve this error we use the call and apply methods
+const booklut = book.bind(lufthansa);
+
+booklut(124890,'Mirabel');
 
 
 
