@@ -26,3 +26,14 @@ console.log(Qualities);
 //* Join Method in JS
 console.log( Arr.join("----"))
 
+///* For Each LOOP Method
+
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+movements.forEach(function(movement){
+if ( movement>0){
+    console.log(`You have Deposited ${movement} ₹`)
+}
+else console.log(`You have Withdrawn ${Math.abs(movement)}₹`) //? This will give the absolute Value of the movement means it;'ll omit all the decimals or -ve values 
+})
+
