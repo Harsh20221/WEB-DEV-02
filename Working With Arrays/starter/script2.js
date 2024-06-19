@@ -23,3 +23,6 @@ const Arr=['Love ', ' Care ', 'Pamper ', 'Kindness', 'Sacrifice ']
 const Qualities = Arr.concat(0,3);  ///# This Method will join letters  0,3 with Arr 
 console.log(Qualities);
 
+//* Join Method in JS
+console.log( Arr.join("----"))
+
