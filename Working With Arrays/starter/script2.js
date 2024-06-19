@@ -37,3 +37,14 @@ if ( movement>0){
 else console.log(`You have Withdrawn ${Math.abs(movement)}₹`) //? This will give the absolute Value of the movement means it;'ll omit all the decimals or -ve values 
 })
 
+const currencies = new Set(['USD','EUR','GBP']) 
+
+
+currencies.forEach(function(Value,key,Map){ //? Use For Each Loop with Set 
+console.log(`${key} : ${Value}`) 
+})
+
+
+
+
+
