@@ -18,7 +18,8 @@ console.log(arr1.splice(1,5)); */ //? This is the Spliced Array
 //* Array Concatenation and Reverse
 
 const Arr=['Love ', ' Care ', 'Pamper ', 'Kindness', 'Sacrifice ']
-console.log(Arr.reverse(Arr)); //! Do not Forget to add  const with arr or else reverse method will not work 
+/* console.log(Arr.reverse(Arr)); */ //! Do not Forget to add  const with arr or else reverse method will not work 
 
-
+const Qualities = Arr.concat(0,3);  ///# This Method will join letters  0,3 with Arr 
+console.log(Qualities);
 
