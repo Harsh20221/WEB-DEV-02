@@ -69,11 +69,11 @@ const displaymoments= function(movements){
     <div class="movements__date">3 days ago</div>
     <div class="movements__value">${mov}</div>
   </div>`;
-  containerMovements.insertAdjacentElement('afterbegin',html);
+  containerMovements.insertAdjacentElement('afterbegin',html); //? This will add the html code to the containerMovements
   })
 }
 
-displayMovements(account1.movements);
+displayMovements(account1.movements);  //? This will display the movements of account1 in the containerMovements
 
 
 
