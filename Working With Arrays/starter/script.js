@@ -102,8 +102,8 @@ const convertedrates = movements.map(mov=>{return mov*eurotousd}); //? This is t
 
 console.log(convertedrates);//!!! Do Not call convertedrates like a function else it will give error that convertedrates is not a function 
 
-
-
+ 
+const movementsDescription = movements.map( (mov,i)=>`Movement ${i+1} : You ${mov>0 ? 'Deposited ' : 'Withdrawn ' } ${Math.abs(mov)}} `) //? Here we are using Terinary operators + Arrow function to define the logic 
 
 
 
