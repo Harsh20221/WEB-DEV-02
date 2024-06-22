@@ -72,6 +72,18 @@ const displayMovements= function(movements){
   containerMovements.insertAdjacentHTML('afterbegin',html); //? This will add the html code to the containerMovements
   })  //? We have used afterbegin so that the new child will get added after the previous one 
 } //!! Do not write the wrong function name , This is insertadjacentHTML not insertadjacentElement
+const user= ' Sarah Jay Williams '
+const createUsernames = function (acc){
+acc.forEach(function(acc){acc.username = user.toLowerCase().split(' ').
+  map(name=>name[0]).join('')});   
+
+}
+createUsernames(accounts);
+console.log(accounts);
+
+
+
+
 
 displayMovements(account1.movements);  //? This will display the movements of account1 in the containerMovements
 
