@@ -1,5 +1,5 @@
 'use strict';
-
+/////* This code Contains code for DOM MANIPULATION FROM LINE 76 ONWARDS S//*
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // BANKIST APP
@@ -61,7 +61,7 @@ const inputLoanAmount = document.querySelector('.form__input--loan-amount');
 const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
-const displaymoments= function(movements){
+const displayMovements= function(movements){
   movements.forEach(function(mov,i) { //? Here mov stands for movement and i stands for Index 
     const type=mov>0 ? 'deposit' : 'withdrawal' 
   const html= `  <div class="movements__row">
@@ -69,9 +69,9 @@ const displaymoments= function(movements){
     <div class="movements__date">3 days ago</div>
     <div class="movements__value">${mov}</div>
   </div>`;
-  containerMovements.insertAdjacentElement('afterbegin',html); //? This will add the html code to the containerMovements
-  })
-}
+  containerMovements.insertAdjacentHTML('afterbegin',html); //? This will add the html code to the containerMovements
+  })  //? We have used afterbegin so that the new child will get added after the previous one 
+} //!! Do not write the wrong function name , This is insertadjacentHTML not insertadjacentElement
 
 displayMovements(account1.movements);  //? This will display the movements of account1 in the containerMovements
 
@@ -91,10 +91,15 @@ const currencies = new Map([
 
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
  
+const eurotousd=1.1;
+  //* THE MAP METHOD PUT IN PRACTICE 
+const convertedrates=movements.map(function(mov)  
+{
+  return mov*eurotousd;
+})
 
 
-
-
+console.log(convertedrates);//!!! Do Not call convertedrates like a function else it will give error that convertedrates is not a function 
 
 
 
