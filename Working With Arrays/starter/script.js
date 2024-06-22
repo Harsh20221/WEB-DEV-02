@@ -93,11 +93,12 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
  
 const eurotousd=1.1;
   //* THE MAP METHOD PUT IN PRACTICE 
-const convertedrates=movements.map(function(mov)  
+/* const convertedrates=movements.map(function(mov)  
 {
   return mov*eurotousd;
 })
-
+ */
+const convertedrates = movements.map(mov=>{return mov*eurotousd}); //? This is the Arrow function call of same method 
 
 console.log(convertedrates);//!!! Do Not call convertedrates like a function else it will give error that convertedrates is not a function 
 
