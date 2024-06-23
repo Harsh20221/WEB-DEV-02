@@ -119,4 +119,8 @@ console.log(convertedrates);//!!! Do Not call convertedrates like a function els
 const movementsDescription = movements.map( (mov,i)=>`Movement ${i+1} : You ${mov>0 ? 'Deposited ' : 'Withdrawn ' } ${Math.abs(mov)}} `) //? Here we are using Terinary operators + Arrow function to define the logic 
 
 
+const deposit = movements.filter(function(mov){
+  return mov > 0;
+})
+
 
