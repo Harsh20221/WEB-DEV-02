@@ -2,8 +2,7 @@
 /////* This code Contains code for DOM MANIPULATION FROM LINE 76 ONWARDS S//*
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
-// BANKIST APP
-
+// BANKIST APP 
 // Data
 const account1 = {
   owner: 'Jonas Schmedtmann',
@@ -81,16 +80,7 @@ acc.forEach(function(acc){acc.username = user.toLowerCase().split(' ').
 }
 createUsernames(accounts);
 console.log(accounts);
-
-
-
-
-
 displayMovements(account1.movements);  //? This will display the movements of account1 in the containerMovements
-
-
-
-
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
@@ -123,5 +113,10 @@ const deposit = movements.filter(function(mov){ //? This function will filter al
   return mov > 0;
 })
 
+const withdrawals=movements.filter(function(mov){
+  return mov < 0;
+})
 
+const balance =  movements.reduce((acc,cur)=>acc+cur,0);
 console.log(deposit); //? This will log all the Positive movement values -- Positive transaction values to the console 
+console.log(withdrawals);
