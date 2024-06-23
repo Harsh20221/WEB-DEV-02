@@ -118,5 +118,6 @@ const withdrawals=movements.filter(function(mov){
 })
 
 const balance =  movements.reduce((acc,cur)=>acc+cur,0);
+console.log(balance);
 console.log(deposit); //? This will log all the Positive movement values -- Positive transaction values to the console 
 console.log(withdrawals);
