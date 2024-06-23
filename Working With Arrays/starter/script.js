@@ -75,7 +75,8 @@ const displayMovements= function(movements){
 const user= ' Sarah Jay Williams '
 const createUsernames = function (acc){
 acc.forEach(function(acc){acc.username = user.toLowerCase().split(' ').
-  map(name=>name[0]).join('')});   
+  map(name=>name[0]).join('')});  //?Each element in the acc array will have a new username property. The value of this property will be the initials
+  //? of the user constant, in lowercase, without any spaces. For the given user value, the username would be sjw.
 
 }
 createUsernames(accounts);
