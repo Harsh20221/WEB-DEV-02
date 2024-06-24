@@ -136,6 +136,10 @@ const MovementSummary=function(movements){
   const income = movements.filter(mov=>mov>0).reduce((acc,mov)=>
 acc+mov,0
   );
-  labelSumIn.textContent=`${income} EUR`;  //? This will hel to display the income sumary 
+  labelSumIn.textContent=`${income} EUR`;  //? This will hel to display the income summary 
+
+
+  const outcome= movements.filter(mov=>mov<0).reduce((acc,mov)=>acc+mov,0);
+  labelSumOut.textContent=`${outcome} EUR`;
 }
 MovementSummary(account1.movements);
