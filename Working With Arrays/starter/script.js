@@ -129,3 +129,13 @@ const max = movements.reduce((acc,mov)=>{
     return mov
   }
 },movements[0]);
+
+//* Desigining the summary screen for all movements 
+
+const MovementSummary=function(movements){
+  const income = movements.filter(mov=>mov>0).reduce((acc,mov)=>
+acc+mov,0
+  );
+  labelSumIn.textContent=`${income} EUR`;  //? This will hel to display the income sumary 
+}
+MovementSummary(account1.movements);
