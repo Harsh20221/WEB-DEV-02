@@ -141,5 +141,8 @@ acc+mov,0
 
   const outcome= movements.filter(mov=>mov<0).reduce((acc,mov)=>acc+mov,0);
   labelSumOut.textContent=`${outcome} EUR`;
+
+  const intrest = movements.filter(mov=>mov>0).map(deposit=>(deposit*1.2)/100).reduce((acc,mov)=>acc+mov);
+  labelSumInterest.textContent=`${intrest} EUR ` //!! Very important error , Do not write map as Map else it wll create errors
 }
 MovementSummary(account1.movements);
