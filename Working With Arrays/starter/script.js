@@ -123,7 +123,7 @@ labelBalance.textContent=`${balance} EUR`;};
 console.log(deposit);  *///? This will log all the Positive movement values -- Positive transaction values to the console 
 /* console.log(withdrawals); */
 calcDisplayBalance(account1.movements);
-
+//* Max function using the reduce method 
 const max = movements.reduce((acc,mov)=>{
   if (acc>mov){
     return mov
