@@ -117,8 +117,9 @@ const withdrawals=movements.filter(function(mov){
   return mov < 0;
 })
 const calcDisplayBalance=function(movements){
-const balance =  movements.reduce((acc,cur)=>acc+cur,0)
-labelBalance.textContent=`${balance}:EUR`};
-console.log(balance);
-console.log(deposit); //? This will log all the Positive movement values -- Positive transaction values to the console 
-console.log(withdrawals);
+const balance =  movements.reduce((acc,mov)=>acc+mov,0)
+labelBalance.textContent=`${balance}:EUR`;};
+/* console.log(balance);
+console.log(deposit);  *///? This will log all the Positive movement values -- Positive transaction values to the console 
+/* console.log(withdrawals); */
+calcDisplayBalance(account1.movements);
