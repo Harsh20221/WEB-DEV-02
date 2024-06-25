@@ -165,11 +165,11 @@ let currentaccount;
 
 btnLogin.addEventListener('click', function(e) {
   e.preventDefault();
-  currentaccount = accounts.find(acc => acc.username === inputLoginUsername.value);
+  currentaccount = accounts.find(acc => acc.username === inputLoginUsername.value); //? This checks username
   console.log(currentaccount);
   if (currentaccount?.pin===Number(inputLoginPin.value) ){
-    labelWelcome.textContent=`Welcome Back ${currentaccount.owner.split(' ')[0]}`
-    containerApp.style.opacity=100;
+    labelWelcome.textContent=`Welcome Back ${currentaccount.owner.split(' ')[0]}` //? This checks password
+    containerApp.style.opacity=100
   }
 });
 
