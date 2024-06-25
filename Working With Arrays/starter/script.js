@@ -170,8 +170,11 @@ btnLogin.addEventListener('click', function(e) {
   if (currentaccount?.pin===Number(inputLoginPin.value) ){
     labelWelcome.textContent=`Welcome Back ${currentaccount.owner.split(' ')[0]}` //? This checks password
     containerApp.style.opacity=100
-  }
-});
+
+    calcDisplayBalance(currentaccount.movements);  ///?The calcDisplayBalance function is called with currentaccount.movements as an argument. This function calculates the total balance of the account by summing up all the elements in the movements array. The result is then displayed on the user interface
+    displayMovements(currentaccount.movements);   //?  displayMovements function is called, also with currentaccount.movements as an argument. This function iterates over the movements array and creates a visual representation of each transaction. This could be a list of deposits and withdrawals, for example.
+     MovementSummary(currentaccount.movements); //?the MovementSummary function is called. This function calculates and displays a summary of the account movements. It might calculate the total income (sum of deposits), total outcome (sum of withdrawals), and total interest, for example.
+}});
 
 
 
