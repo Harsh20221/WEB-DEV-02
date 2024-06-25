@@ -145,3 +145,9 @@ acc+mov,0
   labelSumInterest.textContent=`${intrest} EUR ` //!! Very important error , Do not write map as Map else it wll create errors
 }
 MovementSummary(account1.movements);
+
+
+
+
+
+
