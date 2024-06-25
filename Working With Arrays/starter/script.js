@@ -78,7 +78,7 @@ acc.forEach(function(acc){acc.username = user.toLowerCase().split(' ').
 
 }
 createUsernames(accounts);
-console.log(accounts);
+/*console.log(accounts);*/
 displayMovements(account1.movements);  //? This will display the movements of account1 in the containerMovements
 
 /////////////////////////////////////////////////
@@ -102,7 +102,7 @@ const eurotousd=1.1;
  */
 const convertedrates = movements.map(mov=>{return mov*eurotousd}); //? This is the Arrow function call of same method 
 
-console.log(convertedrates);//!!! Do Not call convertedrates like a function else it will give error that convertedrates is not a function 
+/*console.log(convertedrates)*/;//!!! Do Not call convertedrates like a function else it will give error that convertedrates is not a function
 
  
 const movementsDescription = movements.map( (mov,i)=>`Movement ${i+1} : You ${mov>0 ? 'Deposited ' : 'Withdrawn ' } ${Math.abs(mov)}} `) //? Here we are using Terinary operators + Arrow function to define the logic 
@@ -115,6 +115,7 @@ const deposit = movements.filter(function(mov){ //? This function will filter al
 const withdrawals=movements.filter(function(mov){
   return mov < 0;
 })
+//*** Here we are calculating the Account   Balance of the  user
 const calcDisplayBalance=function(movements){
 const balance =  movements.reduce((acc,mov)=>acc+mov,0);  //?This will calculate the total balance of the user
 labelBalance.textContent=`${balance} EUR`;};
@@ -122,7 +123,7 @@ labelBalance.textContent=`${balance} EUR`;};
 console.log(deposit);  *///? This will log all the Positive movement values -- Positive transaction values to the console 
 /* console.log(withdrawals); */
 calcDisplayBalance(account1.movements);
-//* Max function using the reduce method 
+//* Max function using the reduce method  to find maximum transaction
 const max = movements.reduce((acc,mov)=>{
   if (acc>mov){
     return mov
@@ -146,7 +147,23 @@ acc+mov,0
 }
 MovementSummary(account1.movements);
 
+//* Using find method  to find transfers
 
+const firstwithdrawal= movements.find(function(mov){
+  return mov <0;
+})
+
+/*console.log(firstwithdrawal);*/
+
+//* Managing login and pass authentication
+
+let currentaccount;
+
+btnLogin.addEventListener('click', function(e) {
+  e.preventDefault();
+  currentaccount = accounts.find(acc => acc.owner.toLowerCase() === inputLoginUsername.value.toLowerCase());
+  console.log(currentaccount);
+});
 
 
 
