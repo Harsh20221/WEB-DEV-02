@@ -73,9 +73,9 @@ const displayMovements= function(movements){
 
 //* This function convert the full  username to initials of the person
 
-const user= ' Sarah Jay Williams '
+const username= ' Sarah Jay Williams '
 const createUsernames = function (acc){
-acc.forEach(function(acc){acc.username = user.toLowerCase().split(' ').
+acc.forEach(function(acc){acc.username = acc.owner.toLowerCase().split(' ').  //!! Make sure to Correctly create the createUsername function to convert the initials of all the users in the  accounts , make sure to write this like acc.username=acc.owner.toLowercase().split('') , Do not forget to write .owner in between or else it'll not work
   map(name=>name[0]).join('')});  //?Each element in the acc array will have a new username property. The value of this property will be the initials
   //? of the user constant, in lowercase, without any spaces. For the given user value, the username would be sjw.
 
@@ -140,7 +140,7 @@ const MovementSummary=function(movements){
   const income = movements.filter(mov=>mov>0).reduce((acc,mov)=>
 acc+mov,0
   );
-  labelSumIn.textContent=`${income} EUR`;  //? This will hel to display the income summary 
+  labelSumIn.textContent=`${income} EUR`;  //? This will help to display the income summary
 
 
   const outcome= movements.filter(mov=>mov<0).reduce((acc,mov)=>acc+mov,0);
@@ -165,8 +165,12 @@ let currentaccount;
 
 btnLogin.addEventListener('click', function(e) {
   e.preventDefault();
-  currentaccount = accounts.find(acc => acc.owner.toLowerCase() === inputLoginUsername.value.toLowerCase());
+  currentaccount = accounts.find(acc => acc.username === inputLoginUsername.value);
   console.log(currentaccount);
+  if (currentaccount?.pin===Number(inputLoginPin.value) ){
+    labelWelcome.textContent=`Welcome Back ${currentaccount.owner.split(' ')[0]}`
+    containerApp.style.opacity=100;
+  }
 });
 
 
