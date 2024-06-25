@@ -163,7 +163,7 @@ const firstwithdrawal= movements.find(function(mov){
 
 let currentaccount;
 
-btnLogin.addEventListener('click', function(e) {
+btnLogin.addEventListener('click', function(e) {  ///!!Make sure you Never Write 'click' in capital letters , It should all be small
   e.preventDefault();
   currentaccount = accounts.find(acc => acc.username === inputLoginUsername.value); //? This checks username
   console.log(currentaccount);
@@ -176,6 +176,15 @@ btnLogin.addEventListener('click', function(e) {
      MovementSummary(currentaccount.movements); //?the MovementSummary function is called. This function calculates and displays a summary of the account movements. It might calculate the total income (sum of deposits), total outcome (sum of withdrawals), and total interest, for example.
 }});
 
+
+btnTransfer.addEventListener('click',function(e){
+  e.preventDefault() //?  This prevent default make sure the field is not left blank and one cannot submit it blank
+
+  const amount = Number(inputTransferAmount.value);
+  const  receiverAcc = accounts.find(acc => acc.username===inputTransferTo.value) //! Make sure to use === three equals for comparision and not two equals or else you may  face problems and also make sure to write inputtransferTo.value instead of inputTransferTo.username
+
+console.log(amount , receiverAcc);
+})
 
 
 
