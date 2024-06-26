@@ -124,9 +124,11 @@ const withdrawals=movements.filter(function(mov){
 
 
 //#### Here we are calculating the Account  Balance of the  user
- const calcDisplayBalance=function(movements){  //!! Make sure to store the result of the reduce in balance because we are using this balance property throughout the code
-const balance  =  movements.reduce((acc,mov)=>acc+mov,0);  //?This will calculate the total balance of the user
- /*   acc.balance=balance;  */
+ const calcDisplayBalance=function(acc){  //!! Make sure to store the result of the reduce in balance because we are using this balance property throughout the code
+  //!! Make sure to pass argument acc here and not movement because we are calculatng balance for all users and we are also adding the balance property to the account object
+const balance  =  acc.movements.reduce((acc,mov)=>acc+mov,0) //?This will calculate the total balance of the user
+    acc.balance=balance;  ///The balance property is not originally defined in the account objects (account1, account2, account3, account4) at the beginning of the provided code. 
+    ///Instead, the balance property is dynamically added to each account object in the line acc.balance = balance; in the calcDisplayBalance function.
  labelBalance.textContent=`${balance} EUR`;} ;  //? We have replaced the balance with acc.balance so that the whole accounts array is calculated 
 
 /* console.log(balance);
@@ -188,7 +190,7 @@ btnLogin.addEventListener('click', function(e) {
     console.log("Login failed"); // Debugging
   }
   MovementSummary(currentaccount); ////!!!!!! VERY VERY IMPORTANT TO PASS THIS ARGUMENT with currentaccount or else we will not be able to sign the user inside the account 
-  calcDisplayBalance(currentaccount.movements);
+  calcDisplayBalance(currentaccount);
   displayMovements(currentaccount.movements);  //!Make sure to carefully pass the correct argument in functions , pass currentaccount where account needs to be passed and pass currentaccount.movements where that needs to be passed 
 });
 
@@ -197,14 +199,17 @@ btnLogin.addEventListener('click', function(e) {
   e.preventDefault() //?  This prevent default make sure the field is not left blank and one cannot submit it blank
 
   const amount = Number(inputTransferAmount.value);
-  const  receiverAcc = accounts.find(acc => acc.username===inputTransferTo.value) //! Make sure to use === three equals for comparision and not two equals or else you may  face problems and also make sure to write inputtransferTo.value instead of inputTransferTo.username
-////? This const reciver account find method checks if the entered acccount to whom the money is being send is equal to one of the accounts of the other  valid xuser
+  console.log(amount);
+  const  receiverAcc = accounts.find(acc => acc.username===inputTransferTo.value) //! Make sure to use === three equals for comparision and not two equals or else you may
+  //!!!  face problems and also make sure to write
+  //!! inputtransferTo.value instead of inputTransferTo.username
+////? This const reciver account find method checks if the entered acccount to whom the money is being send is equal to one of the accounts of the other  valid user
 console.log(amount , receiverAcc);
 if (amount > 0 && currentaccount.balance >=amount && receiverAcc?.username !==currentaccount.username
 
-)
+){
 
-console.log('Transfer Valid')
+console.log('Transfer Valid')}
 
 })  
 
