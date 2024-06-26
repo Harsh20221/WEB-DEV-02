@@ -189,7 +189,7 @@ btnLogin.addEventListener('click', function(e) {
   }
   MovementSummary(currentaccount); ////!!!!!! VERY VERY IMPORTANT TO PASS THIS ARGUMENT with currentaccount or else we will not be able to sign the user inside the account 
   calcDisplayBalance(currentaccount.movements);
-  displayMovements(currentaccount.movements);
+  displayMovements(currentaccount.movements);  //!Make sure to carefully pass the correct argument in functions , pass currentaccount where account needs to be passed and pass currentaccount.movements where that needs to be passed 
 });
 
 
