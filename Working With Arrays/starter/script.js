@@ -118,14 +118,19 @@ const deposit = movements.filter(function(mov){ //? This function will filter al
 const withdrawals=movements.filter(function(mov){
   return mov < 0;
 })
-//*** Here we are calculating the Account   Balance of the  user
-const calcDisplayBalance=function(movements){
-const balance =  movements.reduce((acc,mov)=>acc+mov,0);  //?This will calculate the total balance of the user
-labelBalance.textContent=`${balance} EUR`;};
+//*** Here we are calculating the Account  Balance of the  user
+const calcDisplayBalance=function(acc){
+const balance =  acc.movements.reduce((acc,mov)=>acc+mov,0);  //?This will calculate the total balance of the user
+  acc.balance=balance;
+labelBalance.textContent=`${acc.balance} EUR`;};  //? We have replaced the balance with acc.balance so that the whole accounts array is calculated 
+
+
+
+
+
 /* console.log(balance);
 console.log(deposit);  *///? This will log all the Positive movement values -- Positive transaction values to the console 
 /* console.log(withdrawals); */
-calcDisplayBalance(account1.movements);
 
 //* Max function using the reduce method  to find maximum transaction
 const max = movements.reduce((acc,mov)=>{
@@ -182,7 +187,7 @@ btnTransfer.addEventListener('click',function(e){
 
   const amount = Number(inputTransferAmount.value);
   const  receiverAcc = accounts.find(acc => acc.username===inputTransferTo.value) //! Make sure to use === three equals for comparision and not two equals or else you may  face problems and also make sure to write inputtransferTo.value instead of inputTransferTo.username
-
+//? This const reciver account find method checks if the entered acccount to whom the money is being send is equal to one of the accounts of the other  valid xuser
 console.log(amount , receiverAcc);
 })
 
