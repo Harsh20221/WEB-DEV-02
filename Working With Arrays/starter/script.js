@@ -124,7 +124,7 @@ const withdrawals=movements.filter(function(mov){
 
 
 //#### Here we are calculating the Account  Balance of the  user
- const calcDisplayBalance=function(movements){
+ const calcDisplayBalance=function(movements){  //!! Make sure to store the result of the reduce in balance because we are using this balance property throughout the code
 const balance  =  movements.reduce((acc,mov)=>acc+mov,0);  //?This will calculate the total balance of the user
  /*   acc.balance=balance;  */
  labelBalance.textContent=`${balance} EUR`;} ;  //? We have replaced the balance with acc.balance so that the whole accounts array is calculated 
@@ -170,7 +170,7 @@ const firstwithdrawal= movements.find(function(mov){
 
 let currentaccount /// We are passing accounts to the current account to process the values 
 
-createUsernames(accounts); // Ensure usernames are created before login attempts
+createUsernames(accounts); //!!! Ensure usernames are created before login attempts  and pass whole array of accounts and not account 1 or 2 or 3 or 4
 
 btnLogin.addEventListener('click', function(e) {
   e.preventDefault(); // Prevent form submission
