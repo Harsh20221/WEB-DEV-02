@@ -189,10 +189,12 @@ btnLogin.addEventListener('click', function(e) {
     console.log("Login failed"); // Debugging
   }
   MovementSummary(currentaccount); ////!!!!!! VERY VERY IMPORTANT TO PASS THIS ARGUMENT with currentaccount or else we will not be able to sign the user inside the account 
+  calcDisplayBalance(currentaccount);
+  displayMovements(currentaccount);
 });
 
 
-/* btnTransfer.addEventListener('click',function(e){
+ /* btnTransfer.addEventListener('click',function(e){
   e.preventDefault() //?  This prevent default make sure the field is not left blank and one cannot submit it blank
 
   const amount = Number(inputTransferAmount.value);
@@ -205,7 +207,7 @@ if (amount > 0 && currentaccount.balance >=amount && receiverAcc?.username !==cu
 
 console.log('Transfer Valid')
 
-}) */
+})  */
 
 
 
