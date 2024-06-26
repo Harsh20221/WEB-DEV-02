@@ -71,16 +71,19 @@ const displayMovements= function(movements){
   })  //? We have used afterbegin so that the new child will get added after the previous one 
 } //!! Do not write the wrong function name , This is insertadjacentHTML not insertadjacentElement
 
-//* This function convert the full  username to initials of the person
+//# This function convert the full  username to initials of the person
 
-const username= ' Sarah Jay Williams '
-const createUsernames = function (acc){
-acc.forEach(function(acc){acc.username = acc.owner.toLowerCase().split(' ').  //!! Make sure to Correctly create the createUsername function to convert the initials of all the users in the  accounts , make sure to write this like acc.username=acc.owner.toLowercase().split('') , Do not forget to write .owner in between or else it'll not work
+const username = 'Jessica ';
+const createUsernames = function (accs){
+accs.forEach(function(acc){acc.username = acc.owner.toLowerCase().split(' ').  //!! Make sure to Correctly create the createUsername function to convert the initials of all the users in the  accounts ,
+  //!! make sure to write this like acc.username=acc.owner.toLowercase().split('') , Do not forget to write .owner in between or else it'll not work
   map(name=>name[0]).join('')});  //?Each element in the acc array will have a new username property. The value of this property will be the initials
   //? of the user constant, in lowercase, without any spaces. For the given user value, the username would be sjw.
 
-}
+};
 createUsernames(accounts);
+
+
 /*console.log(accounts);*/
 displayMovements(account1.movements);  //? This will display the movements of account1 in the containerMovements
 
@@ -118,19 +121,19 @@ const deposit = movements.filter(function(mov){ //? This function will filter al
 const withdrawals=movements.filter(function(mov){
   return mov < 0;
 })
-//*** Here we are calculating the Account  Balance of the  user
-const calcDisplayBalance=function(acc){
-const balance =  acc.movements.reduce((acc,mov)=>acc+mov,0);  //?This will calculate the total balance of the user
-  acc.balance=balance;
-labelBalance.textContent=`${acc.balance} EUR`;};  //? We have replaced the balance with acc.balance so that the whole accounts array is calculated 
 
 
-
-
+//#### Here we are calculating the Account  Balance of the  user
+ const calcDisplayBalance=function(acc){
+acc.balance =  acc.movements.reduce((acc,mov)=>acc+mov,0);  //?This will calculate the total balance of the user
+  /* acc.balance=balance; */
+ labelBalance.textContent=`${acc.balance} EUR`;} ;  //? We have replaced the balance with acc.balance so that the whole accounts array is calculated 
 
 /* console.log(balance);
 console.log(deposit);  *///? This will log all the Positive movement values -- Positive transaction values to the console 
 /* console.log(withdrawals); */
+
+
 
 //* Max function using the reduce method  to find maximum transaction
 const max = movements.reduce((acc,mov)=>{
@@ -141,20 +144,20 @@ const max = movements.reduce((acc,mov)=>{
 
 //* Desigining the summary screen for all movements 
 
-const MovementSummary=function(movements){
-  const income = movements.filter(mov=>mov>0).reduce((acc,mov)=>
+const MovementSummary=function(acc){
+  const income = acc.movements.filter(mov=>mov>0).reduce((acc,mov)=>
 acc+mov,0
   );
   labelSumIn.textContent=`${income} EUR`;  //? This will help to display the income summary
 
 
-  const outcome= movements.filter(mov=>mov<0).reduce((acc,mov)=>acc+mov,0);
+  const outcome= acc.movements.filter(mov=>mov<0).reduce((acc,mov)=>acc+mov,0);
   labelSumOut.textContent=`${outcome} EUR`;
 
-  const intrest = movements.filter(mov=>mov>0).map(deposit=>(deposit*1.2)/100).reduce((acc,mov)=>acc+mov);
+  const intrest =acc.movements.filter(mov=>mov>0).map(deposit=>(deposit*1.2)/100).reduce((acc,mov)=>acc+mov);
   labelSumInterest.textContent=`${intrest} EUR ` //!! Very important error , Do not write map as Map else it wll create errors
 }
-MovementSummary(account1.movements);
+MovementSummary(account1);
 
 //* Using find method  to find transfers
 
@@ -164,32 +167,45 @@ const firstwithdrawal= movements.find(function(mov){
 
 /*console.log(firstwithdrawal);*/
 
-//* Managing login and pass authentication
+//#### Managing login and pass authentication
 
-let currentaccount;
+let currentaccount /// We are passing accounts to the current account to process the values 
 
-btnLogin.addEventListener('click', function(e) {  ///!!Make sure you Never Write 'click' in capital letters , It should all be small
-  e.preventDefault();
-  currentaccount = accounts.find(acc => acc.username === inputLoginUsername.value); //? This checks username
-  console.log(currentaccount);
-  if (currentaccount?.pin===Number(inputLoginPin.value) ){
-    labelWelcome.textContent=`Welcome Back ${currentaccount.owner.split(' ')[0]}` //? This checks password
-    containerApp.style.opacity=100
+createUsernames(accounts); // Ensure usernames are created before login attempts
 
-    calcDisplayBalance(currentaccount.movements);  ///?The calcDisplayBalance function is called with currentaccount.movements as an argument. This function calculates the total balance of the account by summing up all the elements in the movements array. The result is then displayed on the user interface
-    displayMovements(currentaccount.movements);   //?  displayMovements function is called, also with currentaccount.movements as an argument. This function iterates over the movements array and creates a visual representation of each transaction. This could be a list of deposits and withdrawals, for example.
-     MovementSummary(currentaccount.movements); //?the MovementSummary function is called. This function calculates and displays a summary of the account movements. It might calculate the total income (sum of deposits), total outcome (sum of withdrawals), and total interest, for example.
-}});
+btnLogin.addEventListener('click', function(e) {
+  e.preventDefault(); // Prevent form submission
+  console.log("Attempting to login with:", inputLoginUsername.value, inputLoginPin.value); // Debugging
+  currentaccount = accounts.find(acc => acc.username === inputLoginUsername.value);
+  console.log("Found account:", currentaccount); // Debugging
+
+  if (currentaccount?.pin === Number(inputLoginPin.value)) { //!! Please Do not name this variable currentaccount as currentAccount or 
+    //!!!else you will face errors logging in 
+    console.log("Login successful for:", currentaccount.owner); // Debugging
+    labelWelcome.textContent = `Welcome Back, ${currentaccount.owner.split(' ')[0]}`;
+    containerApp.style.opacity = 1; // Make sure the app is fully visible
+    // Update UI with account information
+  } else {
+    console.log("Login failed"); // Debugging
+  }
+  MovementSummary(currentaccount); ////!!!!!! VERY VERY IMPORTANT TO PASS THIS ARGUMENT with currentaccount or else we will not be able to sign the user inside the account 
+});
 
 
-btnTransfer.addEventListener('click',function(e){
+/* btnTransfer.addEventListener('click',function(e){
   e.preventDefault() //?  This prevent default make sure the field is not left blank and one cannot submit it blank
 
   const amount = Number(inputTransferAmount.value);
   const  receiverAcc = accounts.find(acc => acc.username===inputTransferTo.value) //! Make sure to use === three equals for comparision and not two equals or else you may  face problems and also make sure to write inputtransferTo.value instead of inputTransferTo.username
 //? This const reciver account find method checks if the entered acccount to whom the money is being send is equal to one of the accounts of the other  valid xuser
 console.log(amount , receiverAcc);
-})
+if (amount > 0 && currentaccount.balance >=amount && receiverAcc?.username !==currentaccount.username
+
+)
+
+console.log('Transfer Valid')
+
+}) */
 
 
 
