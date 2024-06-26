@@ -1,5 +1,5 @@
 'use strict';
-/////* This code Contains code for DOM MANIPULATION FROM LINE 76 ONWARDS S//*
+/////* This code Contains code for DOM MANIPULATION FROM LINE 76 ONWARDS S*/
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // BANKIST APP 
@@ -60,17 +60,17 @@ const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
 const displayMovements= function(movements){
-  movements.forEach(function(mov,i) { //? Here mov stands for movement and i stands for Index 
+  movements.forEach(function(mov,i) {      //? Here mov stands for movement and i stands for Index 
     const type=mov>0 ? 'deposit' : 'withdrawal' 
   const html= `  <div class="movements__row">
     <div class="movements__type movements__type-- ${type}">${i+1} ${type}</div>
-    <div class="movements__date">3 days ago</div>
+  
     <div class="movements__value">${mov}</div>
   </div>`;
   containerMovements.insertAdjacentHTML('afterbegin',html); //? This will add the html code to the containerMovements
-  })  //? We have used afterbegin so that the new child will get added after the previous one 
-} //!! Do not write the wrong function name , This is insertadjacentHTML not insertadjacentElement
-
+  });  //? We have used afterbegin so that the new child will get added after the previous one 
+}; //!! Do not write the wrong function name , This is insertadjacentHTML not insertadjacentElement
+  //? This will display the movements of account1 in the containerMovements
 //# This function convert the full  username to initials of the person
 
 const username = 'Jessica ';
@@ -85,7 +85,7 @@ createUsernames(accounts);
 
 
 /*console.log(accounts);*/
-displayMovements(account1.movements);  //? This will display the movements of account1 in the containerMovements
+
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
@@ -124,10 +124,10 @@ const withdrawals=movements.filter(function(mov){
 
 
 //#### Here we are calculating the Account  Balance of the  user
- const calcDisplayBalance=function(acc){
-acc.balance =  acc.movements.reduce((acc,mov)=>acc+mov,0);  //?This will calculate the total balance of the user
-  /* acc.balance=balance; */
- labelBalance.textContent=`${acc.balance} EUR`;} ;  //? We have replaced the balance with acc.balance so that the whole accounts array is calculated 
+ const calcDisplayBalance=function(movements){
+const balance  =  movements.reduce((acc,mov)=>acc+mov,0);  //?This will calculate the total balance of the user
+ /*   acc.balance=balance;  */
+ labelBalance.textContent=`${balance} EUR`;} ;  //? We have replaced the balance with acc.balance so that the whole accounts array is calculated 
 
 /* console.log(balance);
 console.log(deposit);  *///? This will log all the Positive movement values -- Positive transaction values to the console 
@@ -146,7 +146,7 @@ const max = movements.reduce((acc,mov)=>{
 
 const MovementSummary=function(acc){
   const income = acc.movements.filter(mov=>mov>0).reduce((acc,mov)=>
-acc+mov,0
+acc+mov,0 
   );
   labelSumIn.textContent=`${income} EUR`;  //? This will help to display the income summary
 
@@ -157,7 +157,6 @@ acc+mov,0
   const intrest =acc.movements.filter(mov=>mov>0).map(deposit=>(deposit*1.2)/100).reduce((acc,mov)=>acc+mov);
   labelSumInterest.textContent=`${intrest} EUR ` //!! Very important error , Do not write map as Map else it wll create errors
 }
-MovementSummary(account1);
 
 //* Using find method  to find transfers
 
@@ -189,17 +188,17 @@ btnLogin.addEventListener('click', function(e) {
     console.log("Login failed"); // Debugging
   }
   MovementSummary(currentaccount); ////!!!!!! VERY VERY IMPORTANT TO PASS THIS ARGUMENT with currentaccount or else we will not be able to sign the user inside the account 
-  calcDisplayBalance(currentaccount);
-  displayMovements(currentaccount);
+  calcDisplayBalance(currentaccount.movements);
+  displayMovements(currentaccount.movements);
 });
 
 
- /* btnTransfer.addEventListener('click',function(e){
+  btnTransfer.addEventListener('click',function(e){
   e.preventDefault() //?  This prevent default make sure the field is not left blank and one cannot submit it blank
 
   const amount = Number(inputTransferAmount.value);
   const  receiverAcc = accounts.find(acc => acc.username===inputTransferTo.value) //! Make sure to use === three equals for comparision and not two equals or else you may  face problems and also make sure to write inputtransferTo.value instead of inputTransferTo.username
-//? This const reciver account find method checks if the entered acccount to whom the money is being send is equal to one of the accounts of the other  valid xuser
+////? This const reciver account find method checks if the entered acccount to whom the money is being send is equal to one of the accounts of the other  valid xuser
 console.log(amount , receiverAcc);
 if (amount > 0 && currentaccount.balance >=amount && receiverAcc?.username !==currentaccount.username
 
@@ -207,7 +206,7 @@ if (amount > 0 && currentaccount.balance >=amount && receiverAcc?.username !==cu
 
 console.log('Transfer Valid')
 
-})  */
+})  
 
 
 
