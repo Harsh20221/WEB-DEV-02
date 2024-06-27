@@ -219,7 +219,7 @@ if (amount > 0 && currentaccount.balance >=amount && receiverAcc?.username !==cu
 currentaccount.movements.push(-amount); //? This will deduct the amount to the current account in the array movements
 receiverAcc.movements.push(amount);//? This will add the amount to the reciever account in the array movements
 console.log('Transfer Valid')}
-updateUI(currentaccount);
+updateUI(currentaccount); //? This is to update the ui after money transfer 
   
 
 })  
