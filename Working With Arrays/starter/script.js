@@ -202,7 +202,7 @@ btnLogin.addEventListener('click', function(e) {
 
 });
 
-
+///## Here we have the logic for fund transfer from one account to another account
   btnTransfer.addEventListener('click',function(e){
   e.preventDefault() //?  This prevent default make sure the field is not left blank and one cannot submit it blank
 
@@ -224,5 +224,18 @@ updateUI(currentaccount); //? This is to update the ui after money transfer
 
 })  
 
+//# Here we have Logic for Account Deletion 
+
+
+btnClose.addEventListener('click',function(e){
+  e.preventDefault();
+if(currentaccount.username===inputCloseUsername.value && Number(inputClosePin.value)===currentaccount.pin){ //!! Make sure to always check for the .value parameter of the input field button , here inputcoseusernamein this case
+ ///!! In order to check the approrite conditions for the process make sure you write the inputparameter.value at the left and compare it with currentaccount.pin written at right side of equal to operator and also 
+ ///!!!very imortant to enclose input parameter inside Number function if it is a Number 
+ 
+  console.log('Closing can proceed');
+}
+
+})
 
 
