@@ -253,13 +253,23 @@ btnLoan.addEventListener('click', function(e){
   const amount = Number(inputLoanAmount.value);
 
   if ( amount>0 &&  currentaccount.movements.some(mov => mov >= amount*0.1)){  //? Here we are checking if the user has 10% of loan amount
-    //? deposited in his /her account   ///  The `some()` method in JavaScript is an array method that tests whether
-    // ?at least one element in the array passes the test implemented by the provided function. It returns a Boolean value.
-//? There is also an  every() method which returns true when all of the conditions that we mentioned in the array returns true
-    // // Check if there's at least one element greater than 4 in the array
+    //? deposited in his /her account
+    ////  The `some()` method in JavaScript is an array method that tests whether
+    //// at least one element in the array passes the test implemented by the provided function. It returns a Boolean value.
+//// There is also an  every() method which returns true when all of the conditions that we mentioned in the array returns true
 currentaccount.movements.push(amount);  //? Use this push method to insert loan amount to the current account
   }
 updateUI(currentaccount);
 })
 
 
+//* Here we are Practicing the Flat method of Array operations
+
+const arr178=[1,2,3,[4,5,6],[7,8,9],[10,11,12,[13,14,15,[16,17,18]]]]
+
+console.log(arr178.flat()); //? This will flatten upto one level only
+console.log(arr178.flat(Infinity)); //? This will flatten all levels of the Array
+//! Make sure to Write Infinity with I in capital letters or else the parameter will not be recognised
+///* Flatmap Method
+const overallbalance2 = accounts.flatMap(acc=>acc.movements).reduce((acc,mov)=>acc+mov,0)
+console.log(overallbalance2);
