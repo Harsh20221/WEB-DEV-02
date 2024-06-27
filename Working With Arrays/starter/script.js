@@ -168,6 +168,13 @@ const firstwithdrawal= movements.find(function(mov){
 
 /*console.log(firstwithdrawal);*/
 
+
+const updateUI=function(acc){
+  displayMovements(acc.movements);
+  calcDisplayBalance(acc);
+  MovementSummary(acc);
+ }
+
 //#### Managing login and pass authentication
 
 let currentaccount /// We are passing accounts to the current account to process the values 
@@ -189,9 +196,10 @@ btnLogin.addEventListener('click', function(e) {
   } else {
     console.log("Login failed"); // Debugging
   }
-  MovementSummary(currentaccount); ////!!!!!! VERY VERY IMPORTANT TO PASS THIS ARGUMENT with currentaccount or else we will not be able to sign the user inside the account 
-  calcDisplayBalance(currentaccount);
-  displayMovements(currentaccount.movements);  //!Make sure to carefully pass the correct argument in functions , pass currentaccount where account needs to be passed and pass currentaccount.movements where that needs to be passed 
+  inputLoginUsername.value = inputLoginPin.value = ''; // Clear input fields  after login
+  inputLoginPin.blur(); // Remove focus from pin field
+  updateUI(currentaccount); // Update UI with account information
+
 });
 
 
@@ -208,8 +216,11 @@ console.log(amount , receiverAcc);
 if (amount > 0 && currentaccount.balance >=amount && receiverAcc?.username !==currentaccount.username
 
 ){
-
+currentaccount.movements.push(-amount); //? This will deduct the amount to the current account in the array movements
+receiverAcc.movements.push(amount);//? This will add the amount to the reciever account in the array movements
 console.log('Transfer Valid')}
+updateUI(currentaccount);
+  
 
 })  
 
