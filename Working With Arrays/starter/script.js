@@ -245,9 +245,15 @@ containerApp.style.opacity=0; //? Here we are resetting the opacity so that once
 
 
 }
-
-
-
 })  
 
 
+btnLoan.addEventListener('click', function(e){
+  e.preventDefault();
+  const amount = Number(inputLoanAmount.value);
+
+  if ( amount>0 &&  currentaccount.movements.some(mov => mov >= amount*0.1)){
+currentaccount.movements.push(amount);  //? Use this push method to insert loan amount to the current account
+  }
+updateUI(currentaccount);
+})
