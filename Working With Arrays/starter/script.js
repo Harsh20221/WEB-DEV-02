@@ -224,7 +224,7 @@ updateUI(currentaccount); //? This is to update the ui after money transfer
 
 })  
 
-//# Here we have Logic for Account Deletion 
+//# Here we have Logic for Account Deletion Below
 
 
 btnClose.addEventListener('click',function(e){
@@ -247,13 +247,19 @@ containerApp.style.opacity=0; //? Here we are resetting the opacity so that once
 }
 })  
 
-
+//## Here We  Have Added Logic for Loan Request Option  Below
 btnLoan.addEventListener('click', function(e){
   e.preventDefault();
   const amount = Number(inputLoanAmount.value);
 
-  if ( amount>0 &&  currentaccount.movements.some(mov => mov >= amount*0.1)){
+  if ( amount>0 &&  currentaccount.movements.some(mov => mov >= amount*0.1)){  //? Here we are checking if the user has 10% of loan amount
+    //? deposited in his /her account   ///  The `some()` method in JavaScript is an array method that tests whether
+    // ?at least one element in the array passes the test implemented by the provided function. It returns a Boolean value.
+//? There is also an  every() method which returns true when all of the conditions that we mentioned in the array returns true
+    // // Check if there's at least one element greater than 4 in the array
 currentaccount.movements.push(amount);  //? Use this push method to insert loan amount to the current account
   }
 updateUI(currentaccount);
 })
+
+
