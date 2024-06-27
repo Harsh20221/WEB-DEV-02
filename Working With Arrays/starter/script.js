@@ -232,7 +232,7 @@ btnClose.addEventListener('click',function(e){
 if(currentaccount.username===inputCloseUsername.value && Number(inputClosePin.value)===currentaccount.pin){ //!! Make sure to always check for the .value parameter of the input field button , here inputcoseusernamein this case
  ///!! In order to check the approrite conditions for the process make sure you write the inputparameter.value at the left and compare it with currentaccount.pin written at right side of equal to operator and also 
  ///!!!very imortant to enclose input parameter inside Number function if it is a Number 
- 
+ //? In the above step we check if the entered account deletion username and password is same as current username and password 
   console.log('Closing can proceed');
 
 
@@ -240,8 +240,8 @@ const index = accounts.findIndex(acc=>acc.username===currentaccount.username);
 
 /////#Here in This Step we are Deleting the Account of the user 
 
-accounts.splice(index,1);
-containerApp.style.opacity=0;
+accounts.splice(index,1); //? Splice method is used to delete the user's Data 
+containerApp.style.opacity=0; //? Here we are resetting the opacity so that once deleted the user gets logs out 
 
 
 }
