@@ -234,8 +234,20 @@ if(currentaccount.username===inputCloseUsername.value && Number(inputClosePin.va
  ///!!!very imortant to enclose input parameter inside Number function if it is a Number 
  
   console.log('Closing can proceed');
+
+
+const index = accounts.findIndex(acc=>acc.username===currentaccount.username);
+
+/////#Here in This Step we are Deleting the Account of the user 
+
+accounts.splice(index,1);
+containerApp.style.opacity=0;
+
+
 }
 
-})
+
+
+})  
 
 
