@@ -273,3 +273,4 @@ console.log(arr178.flat(Infinity)); //? This will flatten all levels of the Arra
 ///* Flatmap Method
 const overallbalance2 = accounts.flatMap(acc=>acc.movements).reduce((acc,mov)=>acc+mov,0)
 console.log(overallbalance2);
+
