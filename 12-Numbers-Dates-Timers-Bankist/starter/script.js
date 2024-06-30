@@ -78,7 +78,21 @@ const inputLoanAmount = document.querySelector('.form__input--loan-amount');
 const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
-/////////////////////////////////////////////////
+
+//# This method listed below is responsible for creation of Date Object
+const formatMovementdate=function(date){
+const calcDaysPassed=(date1,date2) => Math.round(Math.abs(date2-date1)/(1000*60*60*24)); ///!!!! Make sure you do not forget to add Math.round before else it wil give errors and will nt show correct time
+const daysPassed= calcDaysPassed(new Date(),date);
+if(daysPassed===0){return 'Today'}
+if (daysPassed===1){return 'Yesterday'}
+if(daysPassed<=7){return `${daysPassed}days ago `}
+
+else {
+const day = `${date.getDate()}`.padStart(2,0);
+const month = `${date.getMonth()+1}`.padStart(2,0);
+const year= date.getFullYear();
+return `${day}/${month}/${year}`;}
+}
 // Functions
 ///# This function is the primary function responsible for displaying user Transactions
 const displayMovements = function (acc, sort = false) {
@@ -89,17 +103,13 @@ const displayMovements = function (acc, sort = false) {
   movs.forEach(function (mov, i) {
     const type = mov > 0 ? 'deposit' : 'withdrawal';
 const date =  new Date (acc.movementsDates[i]); //? This extracts the data from account movementDates
-    const year=date.getFullYear();
-    const month=`${date.getMonth()+1}`.padStart(2,0);
-    const day = `${date.getDate()}`.padStart(2,0);
-
-   const  displayDate=`${day}/${month}/${year}`  //? This will display the current date and time to the user in the format of day/month/year
+const finaldate=    formatMovementdate(date);
     const html = `
       <div class="movements__row">
         <div class="movements__type movements__type--${type}">${
       i + 1
     } ${type}</div>
-             <div class = "movements__date">${displayDate}</div>       
+             <div class = "movements__date">${finaldate}</div>       
         <div class="movements__value">${mov.toFixed(2)}€</div>
       </div>
     `;
@@ -209,6 +219,9 @@ btnTransfer.addEventListener('click', function (e) {
 
     currentAccount.movementsDates.push(new Date().toISOString()); //? Make sure to Push the new dates to both the sender and the receiver
     receiverAcc.movementsDates.push(new Date().toISOString());
+
+
+
 
 
 
