@@ -1,11 +1,6 @@
 'use strict';
 
-/////////////////////////////////////////////////
-/////////////////////////////////////////////////
-// BANKIST APP
-
-/////////////////////////////////////////////////
-// Data
+//
 
 // DIFFERENT DATA! Contains movement dates, currency and locale
 
@@ -77,9 +72,20 @@ const inputTransferAmount = document.querySelector('.form__input--amount');
 const inputLoanAmount = document.querySelector('.form__input--loan-amount');
 const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
+/////BELOW IS THE LOCALE CONSTTANT WHICH DETERMINES LOCAL DATEFORMAT , CURRENCY FROM THE LOCAL LANGUAGE
+//// This is used in currency formatting and date formatting in this code
+const locale = navigator.language ///// This will give the current language of the browser in which the user is using the application
+
+///* This is the universal function responsible for Local formatting
+const formatCur= function(value,locale,currency){
+  return new Intl.NumberFormat(locale,{
+style:"currency",
+    currency:currency,
+  }).format(value);
+}
 
 
-//# This method listed below is responsible for creation of Date Object
+//# This method listed below is responsible for creation of Date Object  , This'' display the date in the format of x days ago , yesterday , today and the actual date
 const formatMovementdate=function(date){
 const calcDaysPassed=(date1,date2) => Math.round(Math.abs(date2-date1)/(1000*60*60*24)); ///!!!! Make sure you do not forget to add Math.round before else it wil give errors and will nt show correct time
 const daysPassed= calcDaysPassed(new Date(),date);
@@ -102,15 +108,19 @@ const displayMovements = function (acc, sort = false) {
 
   movs.forEach(function (mov, i) {
     const type = mov > 0 ? 'deposit' : 'withdrawal';
+    ///// THIS METHOD BELOW TAKES CARE OF THE DATE FORMAT
 const date =  new Date (acc.movementsDates[i]); //? This extracts the data from account movementDates
-const finaldate=    formatMovementdate(date);
+const finaldate=    formatMovementdate(date); //? This function is defined above responsible for managing date and time and also lists recent transactions as today , yesterday and , x days ago
+///// Using the help of formatCur function that we defined above  this constant below displays the formatted movements of the user
+    const formattedMov = formatCur(mov,acc.locale,acc.currency); //? Here we are using this function that we defined earlier for defining currency formatting based on user preferances
+    ///!! Make sure to not pass acc.movements in the formatCur function above
     const html = `
       <div class="movements__row">
         <div class="movements__type movements__type--${type}">${
       i + 1
     } ${type}</div>
              <div class = "movements__date">${finaldate}</div>       
-        <div class="movements__value">${mov.toFixed(2)}€</div>
+        <div class="movements__value">${formattedMov}</div>
       </div>
     `;
 
@@ -219,13 +229,6 @@ btnTransfer.addEventListener('click', function (e) {
 
     currentAccount.movementsDates.push(new Date().toISOString()); //? Make sure to Push the new dates to both the sender and the receiver
     receiverAcc.movementsDates.push(new Date().toISOString());
-
-
-
-
-
-
-
     // Update UI
     updateUI(currentAccount);
   }
@@ -279,12 +282,26 @@ btnSort.addEventListener('click', function (e) {
 });
 ///# Here we have the logic for manipulating and showing the current date to the user
 const now = new Date();
-const currentyear=now.getFullYear();
+/*const currentyear=now.getFullYear();
 const currentmonth=`${now.getMonth()+1}`.padStart(2,0);
 const currentday = `${now.getDate()}`.padStart(2,0);
 const currentHour = `${now.getHours()}`.padStart(2,0);
 const currentMinute = `${now.getMinutes()}`.padStart(2,0);
-labelDate.textContent=`${currentday}/${currentmonth}/${currentyear}, ${currentHour}:${currentMinute}`
+labelDate.textContent=`${currentday}/${currentmonth}/${currentyear}, ${currentHour}:${currentMinute}`*/
+
+const options={  //? This is the options object which is used to format the date and time in the desired format
+  hour:'numeric',
+  minute:'numeric',
+  day:'numeric',
+  month:'long',
+  year:'numeric',
+  weekday:'long'
+}
+////locale is defined at the start of this file
+labelDate.textContent= new  Intl.DateTimeFormat(locale,options).format(now) //? This will format the date and time in the desired format,
+//? The intl is the object which is used to format the date and time in the desired format
+
+
 
 ///*  Using Number.is Finite to check for finite numbers
 const nums=6/0;
