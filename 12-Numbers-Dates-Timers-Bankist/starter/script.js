@@ -85,7 +85,7 @@ style:"currency",
 }
 
 
-//# This method listed below is responsible for creation of Date Object  , This'' display the date in the format of x days ago , yesterday , today and the actual date
+//# This method listed below is responsible for creation of Date Object  , This'll display the date in the format of x days ago , yesterday , today and the actual date
 const formatMovementdate=function(date){
 const calcDaysPassed=(date1,date2) => Math.round(Math.abs(date2-date1)/(1000*60*60*24)); ///!!!! Make sure you do not forget to add Math.round before else it wil give errors and will nt show correct time
 const daysPassed= calcDaysPassed(new Date(),date);
@@ -130,7 +130,7 @@ const finaldate=    formatMovementdate(date); //? This function is defined above
 //# This function calculates the Overall Balance of the user
 const calcDisplayBalance = function (acc) {
   acc.balance = acc.movements.reduce((acc, mov) => acc + mov, 0);
-  labelBalance.textContent = `${acc.balance.toFixed(2)}€`;
+  labelBalance.textContent = formatCur(acc.balance,acc.locale,acc.currency); //? formatcur is defined above to format currencies based on account preferances
 };
 
 ///# This is the function to Calculate Display Summary
@@ -139,12 +139,12 @@ const calcDisplaySummary = function (acc) {
   const incomes = acc.movements
     .filter(mov => mov > 0)
     .reduce((acc, mov) => acc + mov, 0);
-  labelSumIn.textContent = `${incomes.toFixed(2)}€`;
+  labelSumIn.textContent = formatCur(incomes,acc.locale,acc.currency);
 
   const out = acc.movements
     .filter(mov => mov < 0)
     .reduce((acc, mov) => acc + mov, 0);
-  labelSumOut.textContent = `${Math.abs(out).toFixed(2)}€`;
+  labelSumOut.textContent = formatCur(out,acc.locale,acc.currency);
 
   const interest = acc.movements
     .filter(mov => mov > 0)
@@ -154,7 +154,7 @@ const calcDisplaySummary = function (acc) {
       return int >= 1;
     })
     .reduce((acc, int) => acc + int, 0);
-  labelSumInterest.textContent = `${interest.toFixed(2)}€`;
+  labelSumInterest.textContent = formatCur(interest,acc.locale,acc.currency);
 };
 
 const createUsernames = function (accs) {
@@ -241,15 +241,16 @@ btnLoan.addEventListener('click', function (e) {
 
   if (amount > 0 && currentAccount.movements.some(mov => mov >= amount * 0.1)) {
     // Add movement
-    currentAccount.movements.push(amount);
+    setTimeout(function() {  //? setTimeout will create a timer after that the loan amount will be credited to the account
+      currentAccount.movements.push(amount);
 /// Adding the loan transaction date to movements dates
-    currentAccount.movementsDates.push(new Date().toISOString());
+      currentAccount.movementsDates.push(new Date().toISOString());
 
-    // Update UI
-    updateUI(currentAccount);
-  }
-  inputLoanAmount.value = '';
-});
+      // Update UI
+      updateUI(currentAccount);
+    }, 2500); //? 2500 means 2.5 seconds as the value is in milliseconds
+    inputLoanAmount.value = ''}///? This is to clear the field once details are entered
+  });
 ///# Here we have the logic for closing the account
 btnClose.addEventListener('click', function (e) {
   e.preventDefault();
