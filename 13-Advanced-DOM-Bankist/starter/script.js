@@ -64,3 +64,32 @@ console.log(getComputedStyle(message).height)*/
 message.style.height= Number.parseFloat(getComputedStyle(message).height,10)+30+'px';  //? This'll give us the message height , the 10 is the base of the number by base we mean the radix of the number
 //?  .parseFloat() is used to convert a string to a number then we add 30 to it and add 'px' to it to make it a string because the height property is a string
 console.log(message.style.height);
+
+////Attributes
+
+const logo = document.querySelector('.nav__logo') //?Here we are using queryselector to select an element
+console.log(logo.alt);  //? The next three lines are logging the alt, src, and className properties of the logo element to the console.
+// ?The alt property is typically used in <img> elements to specify an alternate text for an image, if the image cannot be displayed.
+// ?The src property is used to specify the source URL of an image.
+//? The className property returns the class name(s) of an element.
+console.log(logo.src);
+console.log(logo.className)
+///* set and get Attribute Methods for particular selected s elements of Dom
+console.log(logo.getAttribute('designer'))
+
+logo.setAttribute('company','Bankist') //? This will change the attribute value of the company to Bankist
+
+////// Data Attributes
+console.log(logo.dataset.versionNumber ) //? This''ll lo the current version of the logo in the console ,
+//?// We have defined this property in the logo attribute in the HTML file
+//////Classes
+
+logo.classList.add('c','j');
+logo.classList.remove('c','j');
+logo.classList.toggle('c');
+console.log(logo.classList.contains('c')); //? This'll Display true
+
+
+///# Below this point we Contains the code for Smooth Scrolling
+const Buttonscrollto = document.querySelector('.btn--scroll-to')
+const section1 = document.querySelector('#section--1') //?we are selecting  the Html elements here
