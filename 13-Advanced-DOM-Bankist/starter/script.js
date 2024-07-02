@@ -112,6 +112,22 @@ const h1= document.querySelector('h1');
 setTimeout(()=>h1.removeEventListener('mouseenter',alerth),3000)
 
 //*Experimenting with Nav Link colors and giving Random colors to the Nav Links
+/////This Function BELOW  Will generate Random Numbers Whenever we will click any Link Element
 
 const randint  = (min, max) => Math.floor(Math.random()*(max-min+1)+min);
 const randomcolor= () => `rgb(${randint(0,255)}, ${randint(0,255)},${randint(0,255)}  )`
+
+
+/////This is the one that will Manipulate the Event handlers
+document.querySelector('.nav__link').addEventListener('click',function(e){
+  this.style.backgroundColor=randomcolor();
+
+})
+
+document.querySelector('.nav').addEventListener('click',function(e){
+  this.style.backgroundColor=randomcolor();
+})
+
+document.querySelector('.nav__links').addEventListener('click',function(e){
+  this.style.backgroundColor=randomcolor();
+})
