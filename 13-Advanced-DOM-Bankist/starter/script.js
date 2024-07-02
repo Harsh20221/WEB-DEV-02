@@ -80,22 +80,38 @@ logo.classList.add('c','j');
 logo.classList.remove('c','j');
 logo.classList.toggle('c');
 /*console.log(logo.classList.contains('c'));*/ //? This'll Display true
-///# Below this point it Contains the code for Smooth Scrolling
-const Buttonscrollto = document.querySelector('.btn--scroll-to')
-const section1 = document.querySelector('#section--1') //?we are selecting  the Html elements here
+///* Below this point it Contains the code for Smooth Scrolling using the old method
+/*const Buttonscrollto = document.querySelector('.btn--scroll-to')
+const section1 = document.querySelector('#section--1') //?we are selecting  the Html elements here*/
 /////When We'll Click Learn More in the webpage  then this will give us the Dom Rectangle Details
-Buttonscrollto.addEventListener('click',function(e){
-  const s1coords = section1.getBoundingClientRect();
+/*Buttonscrollto.addEventListener('click',function(e){
+  const s1coords = section1.getBoundingClientRect();*/
 /*  console.log(s1coords)
   console.log(e.target.getBoundingClientRect());
 console.log('Current scroll (X/Y)',window.scrollX,scrollY);  //?  This'll list the current x and y coordinated when we click learn more in the webpage
   console.log('height/width viewport ', document.documentElement.clientHeight,document.documentElement.clientWidth)*/
-  /////SCROLLING ////
+  /////SCROLLING ////  When you'll click readmore then you'll be smoothly scrolled down to your desired section where you want to draw the user
+/*
   window.scrollTo({left : s1coords.left + window.scrollX,
-   top:  s1coords.top + window.scrollY})  ;
+   top:  s1coords.top + window.scrollY,
+  behavior:'smooth'} ///? Make sure to assign the correct behaviour for smooth scrolling
+   )
+
 });
+*/
+
+//# This is the NEW Method to help us make the scrolling , This works only using single line code
+  const section1 = document.querySelector('#section--1') //?we are selecting  the Html elements here*/
+section1.scrollIntoView({behavior:"smooth"})
 
 
+//* Practicing Event Listeners
+const h1= document.querySelector('h1');
+  const alerth=function (e){alert('Hello This is Te Example of Event Listener By Harsh ')};
+  h1.addEventListener('mouseenter',alerth); //? By mouse enter we mean by pressing enter key
+setTimeout(()=>h1.removeEventListener('mouseenter',alerth),3000)
 
+//*Experimenting with Nav Link colors and giving Random colors to the Nav Links
 
-
+const randint  = (min, max) => Math.floor(Math.random()*(max-min+1)+min);
+const randomcolor= () => `rgb(${randint(0,255)}, ${randint(0,255)},${randint(0,255)}  )`
