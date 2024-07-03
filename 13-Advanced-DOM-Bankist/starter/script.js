@@ -167,11 +167,29 @@ console.log(h1.nextElementSibling);
 console.log(h1.nextSibling);
 console.log(h1.previousSibling);*/
 //# Implimenting Tabs
-
+/////QuerySelector for the Tabs
 const tabs =  document.querySelectorAll('.operations__tab') ///! Use Queryselectorall Here and not just Queryselector
+///?  The selected code snippet is designed to implement tab functionality within a web page,
+//? allowing users to switch between different content areas by clicking on tabs.
+// ?This functionality is commonly used in user interfaces to organize content efficiently and make it easily accessible
+//? without navigating to different pages.  Initially, the code selects all elements with the class .operations__tab using document.querySelectorAll,
+// ?storing them in the variable tabs. This method returns a NodeList of all matching elements,
+//? enabling iteration and manipulation of each tab.
+
+
+
+
+
+
+
 const tabscontainer = document.querySelector('.operations__tab-container')
 const tabscontent= document.querySelectorAll('.operations__content')
+///? An event listener is added to the tabscontainer. This listener responds to click events, using event delegation to handle clicks on individual tabs efficiently. When a click event occurs,
+// ?it uses e.target.closest('.operations__tab') to find the closest ancestor of the clicked element that matches the .operations__tab selector.
+// ?This method ensures that the event is handled correctly even if the click is not directly on a tab but on a child element within a tab.
 
+
+////Adding Eventlistener for the Function
 tabscontainer.addEventListener('click',function(e) { ///! MAKE SURE TO add Queryselector in tabs.container not tabs.content
     const clicked = e.target.closest('.operations__tab');
     if (!clicked)
@@ -182,9 +200,29 @@ tabscontainer.addEventListener('click',function(e) { ///! MAKE SURE TO add Query
     clicked.classList.add('operations__tab--active');
     ////Activate Content AREA
 document.querySelector(`.operations__content--${clicked.dataset.tab}`).classList.add('operations__content--active');///!1 Do not use single quotes , use `` backslash here
-
-
-
   }
 );
+
+//##### Code for Menu Fade Animation  ///////
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
