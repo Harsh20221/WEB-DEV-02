@@ -192,9 +192,23 @@ const tabscontent= document.querySelectorAll('.operations__content')
 ////Adding Eventlistener for the Function
 tabscontainer.addEventListener('click',function(e) { ///! MAKE SURE TO add Queryselector in tabs.container not tabs.content
     const clicked = e.target.closest('.operations__tab');
+    //????   In JavaScript, .target is a property of an event object that can be accessed within an event handler.
+    //? It refers to the element that triggered the event.
+    //? This property is particularly useful in scenarios involving event delegation, where a single event listener is attached to a parent element rather than individual child elements.
+    //? By using .target, you can determine which child element initiated the event and handle it accordingly.
+
     if (!clicked)
       return;
     tabs.forEach(t => t.classList.remove('operations__tab--active'));
+    ///?  classList is a read-only property that returns a live DOMTokenList collection of the class attributes of the element.
+    // ?This property provides methods to add, remove, and toggle CSS classes on an element,
+    // ?as well as to check whether a particular class exists on the element.
+  //? some of the methods provided by classList:
+    ///* add(className): Adds a class to an element's list of classes. If the class already exists in the list, it will not add it again.
+    ///* remove(className): Removes a class from an element's list of classes. If the class does not exist, it will do nothing.
+    ///* item(index): Returns the class name by its index in the list.
+    ///*toggle(className, [force]): Toggles a class name in an element's list of classes. If the second argument is true, the class is added; if false, the class is removed. If no second argument is provided, the class is added if it does not exist and removed if it does.
+    //*contains(className): Checks if a class name exists in an element's list of classes. Returns true if it exists, otherwise false.
     tabscontent.forEach(c=>c.classList.remove('operations__content--active'))
     ////Activate Tab
     clicked.classList.add('operations__tab--active');
@@ -204,10 +218,24 @@ document.querySelector(`.operations__content--${clicked.dataset.tab}`).classList
 );
 
 //##### Code for Menu Fade Animation  ///////
-
-
-
-
+const nav = document.querySelector('.nav');
+const handlehover = function(e){
+  if(e.target.classList.contains('nav__link')){
+    const link = e.target;
+    const siblings = link.closest('.nav').querySelectorAll('.nav__link');
+    const logo = link.closest('.nav').querySelector('img');
+    siblings.forEach(el=>{
+      if (el!==link){
+        el.style.opacity=this;
+      }
+    });
+logo.style.opacity=this;
+  }
+}
+nav.addEventListener('mouseover',handlehover.bind(0.5)); //? opacity: 1 means the object will be fully visible, with no transparency.
+//?opacity: 0.5 means the object will be semi-transparent, making it less visible than when opacity is 1.
+// ?It will appear lighter or "more see-through" compared to its appearance at full opacity.
+nav.addEventListener('mouseout',handlehover.bind(1));
 
 
 
