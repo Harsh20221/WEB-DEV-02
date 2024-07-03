@@ -106,10 +106,12 @@ section1.scrollIntoView({behavior:"smooth"})
 
 
 //* Practicing Event Listeners
+/*
 const h1= document.querySelector('h1');
   const alerth=function (e){alert('Hello This is Te Example of Event Listener By Harsh ')};
   h1.addEventListener('mouseenter',alerth); //? By mouse enter we mean by pressing enter key
 setTimeout(()=>h1.removeEventListener('mouseenter',alerth),3000)
+*/
 
 //*Experimenting with Nav Link colors and giving Random colors to the Nav Links
 /////This Function BELOW  Will generate Random Numbers Whenever we will click any Link Element
@@ -131,3 +133,58 @@ document.querySelector('.nav').addEventListener('click',function(e){
 document.querySelector('.nav__links').addEventListener('click',function(e){
   this.style.backgroundColor=randomcolor();
 })
+
+///# Here We are Implimenting Smooth Scroll for Nav Bar click Scroll
+
+document.querySelector('.nav__links').addEventListener('click',function(e) {
+  e.preventDefault();
+  if(e.target.classList.contains('nav_link')){
+    const  id = e.target.getAttribute('href')
+    document.querySelector(id).scrollIntoView({behavior:'smooth'});
+  }
+});
+
+///////Going towards Children
+const h1 = document.querySelector('h1')
+/*console.log(h1.querySelectorAll('.highlight'))
+console.log(h1.childNodes);
+console.log(h1.children);*/
+h1.firstElementChild.style.color='turquoise'
+h1.lastElementChild.style.color='maroon'
+///// Going Towards Parents
+/*console.log(h1.parentNode)
+console.log(h1.parentElement)*/
+h1.closest('.header').style.background ='var(--gradient secondary )';
+h1.closest('h1').style.background='var (--gradient primary )'
+///? The selected code snippet demonstrates how to dynamically change the background
+// ?styles of elements using JavaScript's closest method. This method is used to find the nearest ancestor of a specified element
+// ?that matches a given selector
+/////Going Sideways Siblings
+
+/*
+console.log( h1.previousElementSibling);
+console.log(h1.nextElementSibling);
+console.log(h1.nextSibling);
+console.log(h1.previousSibling);*/
+//# Implimenting Tabs
+
+const tabs =  document.querySelectorAll('.operations__tab') ///! Use Queryselectorall Here and not just Queryselector
+const tabscontainer = document.querySelector('.operations__tab-container')
+const tabscontent= document.querySelectorAll('.operations__content')
+
+tabscontainer.addEventListener('click',function(e) { ///! MAKE SURE TO add Queryselector in tabs.container not tabs.content
+    const clicked = e.target.closest('.operations__tab');
+    if (!clicked)
+      return;
+    tabs.forEach(t => t.classList.remove('operations__tab--active'));
+    tabscontent.forEach(c=>c.classList.remove('operations__content--active'))
+    ////Activate Tab
+    clicked.classList.add('operations__tab--active');
+    ////Activate Content AREA
+document.querySelector(`.operations__content--${clicked.dataset.tab}`).classList.add('operations__content--active');///!1 Do not use single quotes , use `` backslash here
+
+
+
+  }
+);
+
