@@ -272,6 +272,14 @@ allSections.forEach(function(section){
 });
 
 
-///* THIS CODE HERE IS RESPONSIBLE FOR  LAZY LOADING IMAGES EFFECT WHICH LOADS IMAGES AS WE SCROLL DOWN
+///# THIS CODE HERE IS RESPONSIBLE FOR  LAZY LOADING IMAGES EFFECT WHICH LOADS IMAGES AS WE SCROLL DOWN
+const imageTargets = document.querySelectorAll('img[data-src]')
 
-
+const loadimages = function( entries , observer ){
+  const [entry] = entries ;
+  console.log()
+}
+  const imageObserver= new IntersectionObserver(loadimages,{
+root:null,
+    threshold:0
+  });
