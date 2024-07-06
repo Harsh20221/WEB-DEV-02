@@ -238,19 +238,40 @@ nav.addEventListener('mouseover',handlehover.bind(0.5)); //? opacity: 1 means th
 nav.addEventListener('mouseout',handlehover.bind(1));
 
 
+///# This Code Below is responsible for Sticky Top Navigation Bar With Bankist LOGO  which gets more transparent as we move lower and sticks
+/*const header = document.querySelector('.header');*/ //! Do  not decalre the header Twice
+const stickyNav = function(entries ){
+  const[entry ]=entries ;
+  if(!entry.isIntersecting) nav.classList.add('sticky');
+  else nav.classList.remove('sticky')
+
+}
+
+const headerObserver = new IntersectionObserver(stickyNav,{
+  root:null,threshold:0,
+});
+
+headerObserver.observe(header)
+
+//# Here we are implementing a feature hat will reveal ui elements as we move down
+
+const allSections = document.querySelectorAll('.section');
+
+const revealsection = function(entries,observer){
+  const[entry]=entries;
+  entry.target.classList.remove('section--hidden');
+};
+const  sectionObserver =  new IntersectionObserver(revealsection,{root:null,threshold:0.15});
 
 
 
 
+allSections.forEach(function(section){
+  sectionObserver.observe(section);
+  section.classList.add('section--hidden');
+});
 
 
-
-
-
-
-
-
-
-
+///* THIS CODE HERE IS RESPONSIBLE FOR  LAZY LOADING IMAGES EFFECT WHICH LOADS IMAGES AS WE SCROLL DOWN
 
 
