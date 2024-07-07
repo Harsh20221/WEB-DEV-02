@@ -277,9 +277,16 @@ const imageTargets = document.querySelectorAll('img[data-src]')
 
 const loadimages = function( entries , observer ){
   const [entry] = entries ;
-  console.log()
-}
+  if(!entry.isIntersecting) return;
+  /////Replace Source Img to High Quality image from Low Quality Image
+  entry.target.src=entry.target.dataset.src;
+  entry.target.classList.remove('lazy-img');
+  entry.target.addEventListener('load', function( ) {
+    entry.target.classList.remove('lazy-img')
+  })
+};
   const imageObserver= new IntersectionObserver(loadimages,{
 root:null,
     threshold:0
   });
+imageTargets.forEach(img=>imageObserver.observe(img));
