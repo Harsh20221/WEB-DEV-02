@@ -308,3 +308,5 @@ root:null,
 // ?imageObserver.observe(img);. This setup ensures that the loadimages function is called at the right moment for each image,
 //? optimizing resource loading and improving the user experience
 imageTargets.forEach(img=>imageObserver.observe(img));
+
+///# Here We are Designing the Function of Slider COMPONENT
