@@ -276,8 +276,18 @@ allSections.forEach(function(section){
 const imageTargets = document.querySelectorAll('img[data-src]')
 
 const loadimages = function( entries , observer ){
-  const [entry] = entries ;
-  if(!entry.isIntersecting) return;
+  const [entry] = entries ;  ///? The purpose of destructuring entries with const [entry] = entries;
+  // ?is to extract the first element from the entries array
+  //? and assign it to a new variable named entry. This is particularly useful when
+  //? you are only interested in the first item from the array,
+  // ?which is common with IntersectionObserver callbacks when observing a single item.
+  if(!entry.isIntersecting) return;  ///? The purpose of this line is to immediately exit the callback function
+  // ?if the target element is not intersecting with the viewport.
+  // ?This means that any code following this line will only execute
+  // ?for elements that are currently visible or partially visible in the viewport.
+  // ?This behavior is particularly useful for implementing lazy loading of images or
+  // ?revealing elements with animations only when they come into the user's view,
+  // ?thereby improving the performance and user experience of a webpage
   /////Replace Source Img to High Quality image from Low Quality Image
   entry.target.src=entry.target.dataset.src;
   entry.target.classList.remove('lazy-img');
@@ -285,8 +295,16 @@ const loadimages = function( entries , observer ){
     entry.target.classList.remove('lazy-img')
   })
 };
+
+//?The IntersectionObserver is configured with root:null and threshold:0,
+//? meaning it will observe changes in the intersection relative to the viewport
+// ?and trigger as soon as even one pixel of the target is visible.
   const imageObserver= new IntersectionObserver(loadimages,{
 root:null,
     threshold:0
   });
+
+  ///? Each image that should be lazily loaded is then observed by the IntersectionObserver using
+// ?imageObserver.observe(img);. This setup ensures that the loadimages function is called at the right moment for each image,
+//? optimizing resource loading and improving the user experience
 imageTargets.forEach(img=>imageObserver.observe(img));
