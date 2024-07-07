@@ -309,4 +309,61 @@ root:null,
 //? optimizing resource loading and improving the user experience
 imageTargets.forEach(img=>imageObserver.observe(img));
 
-///# Here We are Designing the Function of Slider COMPONENT
+///# Here We are Designing the Function of Slider COMPONENT of Customer Reviews at the last of the page
+
+
+const  slides = document.querySelectorAll('.slide')
+
+const btnLeft = document.querySelector('.slider__btn--left')
+const btnRight = document.querySelector('.slider__btn--right')
+
+let curslide =0; ///? By This we Denote the current slide
+const maxslide= slides.length;  ///? By this we denote the total no of Slides
+
+const goToSlide=function(slide){
+  slides.forEach(
+    (s,i)=> (s.style.transform=`translateX(${100*(i-slide)}%`)  //? Here we aare moving the current slide towards left ot right in the screen when the user presses left or right Arrow Button
+  );
+};
+
+goToSlide(0); //? This is to Start the  slider from 0 onwards
+
+/////Next Slide function
+
+const nextslide = function(){
+  if(curslide===maxslide-1){
+
+    curslide=0; ///? This is to reset the slide sequence once the user reaches the end slide
+  }
+  else {
+    curslide++;
+  }
+  goToSlide(curslide); //? This  executes the goToSlide function responsible for moving the slides
+}
+//////Previous Slide Function
+
+const prevSlide=function(){
+
+  curslide--;
+  goToSlide(curslide)
+
+}
+  ////// Adding Event Listeners on Both Next Slide and Previous Slide
+btnRight.addEventListener('click',nextslide)
+btnLeft.addEventListener('click',prevSlide)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
