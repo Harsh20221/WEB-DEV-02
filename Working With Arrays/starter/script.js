@@ -79,7 +79,7 @@ acc.forEach(function(acc){acc.username = user.toLowerCase().split(' ').
 
 }
 createUsernames(accounts);
-console.log(accounts);
+/* console.log(accounts); */
 displayMovements(account1.movements);  //? This will display the movements of account1 in the containerMovements
 
 /////////////////////////////////////////////////
@@ -103,7 +103,7 @@ const eurotousd=1.1;
  */
 const convertedrates = movements.map(mov=>{return mov*eurotousd}); //? This is the Arrow function call of same method 
 
-console.log(convertedrates);//!!! Do Not call convertedrates like a function else it will give error that convertedrates is not a function 
+/* console.log(convertedrates); *///!!! Do Not call convertedrates like a function else it will give error that convertedrates is not a function 
 
  
 const movementsDescription = movements.map( (mov,i)=>`Movement ${i+1} : You ${mov>0 ? 'Deposited ' : 'Withdrawn ' } ${Math.abs(mov)}} `) //? Here we are using Terinary operators + Arrow function to define the logic 
@@ -117,7 +117,16 @@ const withdrawals=movements.filter(function(mov){
   return mov < 0;
 })
 
-const balance =  movements.reduce((acc,cur)=>acc+cur,0);
+const balance =  movements.reduce((acc,cur)=>acc+cur,0); //? This 0 defines the starting position of the accumulator  
 console.log(balance);
-console.log(deposit); //? This will log all the Positive movement values -- Positive transaction values to the console 
-console.log(withdrawals);
+/* console.log(deposit); //? This will log all the Positive movement values -- Positive transaction values to the console 
+console.log(withdrawals); */
+
+const max = movements.reduce((acc,  mov)=>{if (acc>mov){
+  return acc;
+}
+else return mov ; 
+
+},movements[0]);
+
+
