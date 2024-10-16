@@ -55,7 +55,8 @@ message.style.width='120%';
 /*console.log(message.style.backgroundColor)*/ //? This'll give us the message bacground color
 /*console.log(getComputedStyle(message).color)
 console.log(getComputedStyle(message).height)*/
-message.style.height= Number.parseFloat(getComputedStyle(message).height,10)+30+'px';  //? This'll give us the message height , the 10 is the base of the number by base we mean the radix of the number
+message.style.height= Number.parseFloat(getComputedStyle(message).height,10)+30+'px';
+//? This'll give us the message height , the 10 is the base of the number by base we mean the radix of the number
 //?  .parseFloat() is used to convert a string to a number then we add 30 to it and add 'px' to it to make it a string because the height property is a string
 /*console.log(message.style.height);*/
 ////Attributes
@@ -320,9 +321,23 @@ const btnRight = document.querySelector('.slider__btn--right')
 let curslide =0; ///? By This we Denote the current slide
 const maxslide= slides.length;  ///? By this we denote the total no of Slides
 
+/*const dotContainer = document.querySelector('.dots',function(e){  ///!!!! This part of code is Currently Wrecked
+  if(e.target.classList.contains('dots_dot')){
+    const {slide} = e.target.dataset.slide;
+    goToSlide(slide)
+    activateDot(slide);
+  }
+})*/
+
+
+
+
+
+
 const goToSlide=function(slide){
   slides.forEach(
-    (s,i)=> (s.style.transform=`translateX(${100*(i-slide)}%`)  //? Here we aare moving the current slide towards left ot right in the screen when the user presses left or right Arrow Button
+    (s,i)=> (s.style.transform=`translateX(${100*(i-slide)}%`)
+    //? Here we aare moving the current slide towards left ot right in the screen when the user presses left or right Arrow Button
   );
 };
 
@@ -330,15 +345,15 @@ goToSlide(0); //? This is to Start the  slider from 0 onwards
 
 /////Next Slide function
 
-const nextslide = function(){
-  if(curslide===maxslide-1){
+const nextslide = function() {
+  if (curslide === maxslide - 1) {
 
-    curslide=0; ///? This is to reset the slide sequence once the user reaches the end slide
-  }
-  else {
+    curslide = 0; ///? This is to reset the slide sequence once the user reaches the end slide
+  } else {
     curslide++;
   }
   goToSlide(curslide); //? This  executes the goToSlide function responsible for moving the slides
+  /*  activateDot(curslide)*/  //!!!This part of code is Currently Wrecked
 }
 //////Previous Slide Function
 
@@ -346,23 +361,40 @@ const prevSlide=function(){
 
   curslide--;
   goToSlide(curslide)
+/*  activateDot(curslide)*/ ///!! This part of code is currently wrecked
 
 }
-  ////// Adding Event Listeners on Both Next Slide and Previous Slide
+
 btnRight.addEventListener('click',nextslide)
 btnLeft.addEventListener('click',prevSlide)
 
+///!!!!! Below  code is Currently Wrecked and hence isolated from The Current Working Code to prevent problems
+//* Below This Contains logic for dots Navigation for the above Slider Component , This  has a Seperate
+///* Logic but it is also connected to the above Class
+
+/*
+
+const createDots = function(){
+  slides.forEach(function(_,i){
+    dotContainer.insertAdjacentElement('beforeend',`<button class="dots__dot "
+    data-slide="${i}"></button>`)
+  })
+}
+createDots(0);
+
+const activateDot=function(slide){
+  document.querySelectorAll('.dots_dot').forEach(dot=>dot.classList.remove('dots__dot--active'));
+  document.querySelector(`.dots__dot[data-slide =" ${slide}"]`).classList.add(`dots__dot--active`)
+}
+activateDot(0)
+
+
+  ////// Adding Event Listeners on Both Next Slide and Previous Slide
 
 
 
 
-
-
-
-
-
-
-
+*/
 
 
 
